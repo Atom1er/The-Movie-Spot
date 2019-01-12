@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jshint assets/javascript/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atom1er/project1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Atom1er/project1/issues"
+  },
+  "homepage": "https://github.com/Atom1er/project1#readme",
+  "dependencies": {
+    "jshint": "^2.9.7"
+  }
+}
