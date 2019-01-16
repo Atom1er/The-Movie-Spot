@@ -6,7 +6,10 @@ var mainContent = $("#mainContent");
 var categories = $("#categories");
 var name;
 
-submit.on('click', function () {
+submit.on("click", function (event) {
+
+    event.preventDefault();
+
     var newCat = $("<div>");
     newCat.attr('class', 'NewButton');
     name = UserName.val().trim();
@@ -14,15 +17,10 @@ submit.on('click', function () {
     // console.log(name, Newkey);
     newCat.append(Newkey);
     categories.append(newCat);
-});
 
-$("#submit").on("click", function (event) {
+    var movieTitle = NewCategory.val();
+    var queryURL = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=95f43ed4";
 
-    event.preventDefault();
-
-    var movieTitle = $("").val();
-    var queryURL = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=95f43ed4"
-    // var queryURL = "https://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=short&apikey=95f43ed4";
     $.ajax({
         url: queryURL,
         method: "GET"
