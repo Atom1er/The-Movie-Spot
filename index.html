@@ -1,9 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-    </head>
-    <body>
-        
-    </body>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/javascript/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row" id="header"></div>
+            <div class="jumbotron">
+                <h1 class="display-4">Welcom to Blablabla movies</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+                    attention to featured content or information.</p>
+                <hr class="my-4">
+                <div class="form">
+                    <input class="form-control" id="UserName" type="text" placeholder="Name">
+                </div>
+                <div class="form">
+                    <input class="form-control" id="NewCategory" type="text" placeholder="Add category">
+                </div>
+                <a class="btn btn-primary btn-lg" href="#" role="button" id="submit">Submit</a>
+            </div>
+            <div class="row" id="mainContent"></div>
+            <div class="row" id="categories"></div>
+        </div>
+    </div>
+</body>
+
 </html>

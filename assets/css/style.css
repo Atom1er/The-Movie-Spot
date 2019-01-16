@@ -1,0 +1,12 @@
+.form{
+    margin: 10px;
+}
+
+.NewButton{
+    padding: 2px;
+    margin: 1%;
+    border: solid 1px gray;
+    border-radius: 3px;
+    color: white;
+    background-color: #007bff;
+}
