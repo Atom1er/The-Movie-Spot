@@ -5,7 +5,7 @@ var NewCategory = $("#NewCategory");
 var mainContent = $("#mainContent");
 var categories = $("#categories");
 var error1 = $("#error1");
-var error2 = $("#error2")
+var error2 = $("#error2");
 var name;
 var test;
 
@@ -27,7 +27,7 @@ submit.on("click", function (event) {
         } else if(Newkey === test || Newkey === ""){
             error2.css('display', 'block');
             error2.text('Please enter a valid/different search word!');
-        }
+        };
     };
 
 });
@@ -52,7 +52,7 @@ function search(){
     var movieTitle = NewCategory.val().trim();
     var api1_key = "95f43ed4";
     var queryURL1 = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + api1_key;
-    var api2_key= "e862ab4c2af4753ad517e279d0a0591a"
+    var api2_key= "e862ab4c2af4753ad517e279d0a0591a";
     var queryURL2 = "https://api.themoviedb.org/3/search/movie?query=" + movieTitle + "&api_key=" + api2_key;
     var settings = {
         "async": true,
@@ -61,7 +61,7 @@ function search(){
         "method": "GET",
         "headers": {},
         "data": "{}"
-    }
+    };
 
     $.ajax({
         url: queryURL1,
@@ -101,8 +101,8 @@ function ResultDisplay(resp){
         var titleDiv = $("<div>");
         Maindiv.attr('class', 'col-3 posterDiv');
         img.attr('class', 'poster');
-        img.attr('src',"http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path)
-        titleDiv.text(resp.results[i].title)
+        img.attr('src',"http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
+        titleDiv.text(resp.results[i].title);
         // overviewDiv.text(resp.results[i].overview);
         Maindiv.append(img,titleDiv);
         mainContent.append(Maindiv);
