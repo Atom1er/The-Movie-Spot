@@ -10,3 +10,15 @@
     color: white;
     background-color: #007bff;
 }
+
+#error1 , #error2{
+    color: rgb(199, 54, 54);
+}
+
+/* .poster{
+    float: left;
+} */
+
+.posterDiv{
+    display: inline-block;
+}
