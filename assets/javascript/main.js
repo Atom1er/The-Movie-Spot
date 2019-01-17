@@ -27,8 +27,8 @@ submit.on("click", function (event) {
         } else if(Newkey === test || Newkey === ""){
             error2.css('display', 'block');
             error2.text('Please enter a valid/different search word!');
-        };
-    };
+        }
+    }
 
 });
 
