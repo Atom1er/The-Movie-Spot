@@ -111,7 +111,7 @@ function buttonsHere(){
     var Newkey = NewCategory.val().trim();
     var newCat = $("<button>");
     newCat.val(NewCategory.val().trim());
-    newCat.attr('class', 'NewButton');
+    newCat.attr('class', 'NewButton btn btn-lg');
 
     // console.log(name, Newkey);
     newCat.append(Newkey);
