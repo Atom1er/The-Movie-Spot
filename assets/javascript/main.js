@@ -21,8 +21,10 @@ submit.on("click", function (event) {
     if (Newkey !== "" && Newkey !== test && name !== "") {
     //   search();
       placeholder();
-      buttonsHere();
+      buttonsHere(Newkey);
       newKeyword();
+      AddKey();
+      MoreDetail();
 
     } else if (Newkey === test || Newkey ==="" || name === "") {
         if(name === ""){
@@ -74,6 +76,7 @@ function search(){
 
 // this function generates buttons for the movies
 function ResultDisplay(resp){
+    $(".placeHolderDiv").empty();
     for(var i = 0; i<4; i++){
         var Maindiv = $("<div>");
         var img = $("<img>");
@@ -81,10 +84,15 @@ function ResultDisplay(resp){
         var titleBtn = $("<button>");
         titleBtn.addClass('titleBtn');
         titleBtn.val(resp.results[i].title);
+        titleBtn.attr('id', resp.results[i].id);
         Maindiv.attr('class', 'col-3 posterDiv');
         img.attr('class', 'poster');
         img.attr('src',"http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
         titleBtn.text(resp.results[i].title);
+        titleBtn.data('data-title', resp.results[i].title);
+
+        titleBtn.data('data-poster', "http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
+        titleBtn.data('data-overview', resp.results[i].overview);
         // overviewDiv.text(resp.results[i].overview);
         Maindiv.append(img,titleBtn);
         $(".placeHolderDiv").append(Maindiv);
@@ -107,14 +115,14 @@ function placeholder(){
 }
 
 // creates buttons for the movies
-function buttonsHere(){
+function buttonsHere(value){
     var Newkey = NewCategory.val().trim();
     var newCat = $("<button>");
-    newCat.val(NewCategory.val().trim());
+    newCat.val(value);
     newCat.attr('class', 'NewButton btn btn-lg');
 
     // console.log(name, Newkey);
-    newCat.append(Newkey);
+    newCat.append(value);
     $("#buttonSection").append(newCat);
 }
 
@@ -122,18 +130,44 @@ function newKeyword(){
     var keyWord = $("<form>");
     keyWord.addClass('form-inline');
     var userInput = $("<input>");
-    userInput.addClass('form-control mr-sm-2');
+    userInput.addClass('form-control mr-sm-2 KeyAdd');
     var button2 = $("<button>");
     button2.text('Add Keyword');
-    button2.addClass('btn btn-outline-success my-2 my-sm-0');
+    button2.addClass('btn btn-outline-success my-2 my-sm-0 AddKeyWord');
     keyWord.append(userInput, button2);
     var userFromStorage = localStorage.getItem("myName");
     var span = $("<span>");
     span.addClass('spanName');
     span.text(userFromStorage);
     $(".container").prepend(span, keyWord);
-    
+}
 
+function AddKey(){
+    $(document).on('click', '.AddKeyWord', function(event){
+        event.preventDefault();
+        var NewWord = $(".KeyAdd").val().trim();
+        buttonsHere(NewWord);
+    })
+}
+
+function MoreDetail(){
+    $(document).on('click', '.titleBtn', function(event){
+        event.preventDefault();
+        var PickedMovie = $(this).val();
+        var Maindiv = $("<div>");
+        var img = $("<img>");
+        var overviewDiv = $("<div>");
+        var titleBtn = $("<div>");
+        img.attr('src', $(this).data("data-poster"));
+        titleBtn.text($(this).data("data-title"));
+        overviewDiv.text($(this).data("data-overview"));
+        Maindiv.append(titleBtn, img, overviewDiv);
+        $(".placeHolderDiv").empty();
+        $(".placeHolderDiv").append(Maindiv);
+
+
+
+})
 }
 
 $(document).on("click", ".NewButton", search);
