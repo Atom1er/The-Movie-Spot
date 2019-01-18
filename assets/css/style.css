@@ -1,19 +1,39 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(182, 182, 182);
+}
+#userInputJ{
+    margin-top: 20px;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: white;
+    text-align: center;
+}
+
+.btn{
+    background-color: white;
+}
+
 .form{
     margin: 10px;
 }
-
+/* style for keyword buttons */
 .NewButton{
     padding: 2px;
     margin: 1%;
-    border: solid 1px gray;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(0, 189, 16) 1px;
     border-radius: 3px;
-    color: white;
-    background-color: #007bff;
+    color: rgb(0, 189, 16);
 }
 
 #error1 , #error2{
     color: rgb(199, 54, 54);
 }
+
 .placeHolderDiv{
     display: flex;
     width: 100%;
@@ -22,16 +42,22 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
-    margin-top: 40px;
+    margin-top: 10px;
     height: 500px;
 }
+
+/* style for area with the key words buttons */
 .buttonsDivs{
-    border: solid black 1px;
-    height: 200px;
-    background-color: lightblue;
+    border-radius: 5px;
+    height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-image: linear-gradient(to right, rgb(104, 179, 202) , rgb(0, 68, 156));
     
 }
 
+
+/* to display the movies next to each other after click on key word button */
 .posterDiv{
     display: inline-block;
 }
@@ -44,11 +70,26 @@
     padding: 5px;
     width: 100%;
     margin-top: 6px;
-    background-color: rgb(88, 140, 207);
-    border: solid rgb(204, 109, 0 2px);
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(0, 189, 16) 1px;
     border-radius: 3px;
+    color: rgb(0, 189, 16);
+}
+
+.NewButton:hover{
     color: white;
+    background-color: rgb(0, 189, 16);
+}
 
-    
+.titleBtn:hover{
+    color: white;
+    background-color: rgb(0, 189, 16);
+}
 
+.spanName{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(145, 53, 0);
+    text-shadow: darkgray 3px;
+    font-size: 40px;
+    font-weight: bold;
 }
