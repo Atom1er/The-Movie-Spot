@@ -94,3 +94,37 @@ body{
     font-size: 40px;
     font-weight: bold;
 }
+
+.mainDivClass{
+    display: flex;
+
+}
+.titleOverview{
+    position: absolute;
+    margin-top: -40px;
+    width: content;
+    padding: 4px;
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+    background-color: white;
+    opacity: 0.7;
+
+}
+.moreDetailsImg{
+    width: 250px;
+    height: 100%;
+    border: white solid 3px;
+    display: inline-block;
+    
+}
+.overviewClass{
+    margin-left: 20px;
+    padding: 10px;
+    display: inline-block;
+    color: rgb(0, 122, 0);
+    width: 70%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+    border-radius: 5px;
+}

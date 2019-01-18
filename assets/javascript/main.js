@@ -155,9 +155,13 @@ function MoreDetail(){
         event.preventDefault();
         var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
+        Maindiv.addClass('mainDivClass');
         var img = $("<img>");
+        img.addClass('moreDetailsImg');
         var overviewDiv = $("<div>");
+        overviewDiv.addClass('overviewClass');
         var titleBtn = $("<div>");
+        titleBtn.addClass('titleOverview');
         img.attr('src', $(this).data("data-poster"));
         titleBtn.text($(this).data("data-title"));
         overviewDiv.text($(this).data("data-overview"));
