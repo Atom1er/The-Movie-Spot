@@ -16,11 +16,13 @@ submit.on("click", function (event) {
     error2.css('display', 'none');
     var Newkey = NewCategory.val().trim();
     name = UserName.val().trim();
+    localStorage.setItem('myName', name);
     
     if (Newkey !== "" && Newkey !== test && name !== "") {
     //   search();
       placeholder();
       buttonsHere();
+      newKeyword();
 
     } else if (Newkey === test || Newkey ==="" || name === "") {
         if(name === ""){
@@ -57,20 +59,7 @@ function search(){
         "headers": {},
         "data": "{}"
     };
-
-    // $.ajax({
-    //     url: queryURL1,
-    //     method: "GET"
-    // }).then(function (response) {
-
-
-    //     console.log("API 1");
-    //     console.log(response);
-
-    //     $(".movieText").text(JSON.stringify(response));
-
-    // });
-
+// getting response from API
     $.ajax(settings).done(function (response) {
         console.log("API 2"); 
         console.log(response);
@@ -83,7 +72,7 @@ function search(){
    
 }
 
-
+// this function generates buttons for the movies
 function ResultDisplay(resp){
     for(var i = 0; i<4; i++){
         var Maindiv = $("<div>");
@@ -106,7 +95,7 @@ function ResultDisplay(resp){
 function placeholder(){
     // creating a div for place holder
     var pHolder = $("<div>");
-    pHolder.addClass('placeHolderDiv');
+    pHolder.addClass('jumbotron placeHolderDiv');
     $(".container").html(pHolder);
     
 
@@ -117,6 +106,7 @@ function placeholder(){
     $(".container").append(pHolder2);
 }
 
+// creates buttons for the movies
 function buttonsHere(){
     var Newkey = NewCategory.val().trim();
     var newCat = $("<button>");
@@ -126,6 +116,24 @@ function buttonsHere(){
     // console.log(name, Newkey);
     newCat.append(Newkey);
     $("#buttonSection").append(newCat);
+}
+
+function newKeyword(){
+    var keyWord = $("<form>");
+    keyWord.addClass('form-inline');
+    var userInput = $("<input>");
+    userInput.addClass('form-control mr-sm-2');
+    var button2 = $("<button>");
+    button2.text('Add Keyword');
+    button2.addClass('btn btn-outline-success my-2 my-sm-0');
+    keyWord.append(userInput, button2);
+    var userFromStorage = localStorage.getItem("myName");
+    var span = $("<span>");
+    span.addClass('spanName');
+    span.text(userFromStorage);
+    $(".container").prepend(span, keyWord);
+    
+
 }
 
 $(document).on("click", ".NewButton", search);
