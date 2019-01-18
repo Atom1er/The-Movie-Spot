@@ -18,7 +18,9 @@ submit.on("click", function (event) {
     name = UserName.val().trim();
     
     if (Newkey !== "" && Newkey !== test && name !== "") {
-      search();
+    //   search();
+      placeholder();
+      buttonsHere();
 
     } else if (Newkey === test || Newkey ==="" || name === "") {
         if(name === ""){
@@ -41,17 +43,10 @@ $(document).on("click", ".NewButton", function () {
 
 //// {--------Search engin API 1 & 2  SETTINGS ----}/////
 function search(){
-    var Newkey = NewCategory.val().trim();
-    var newCat = $("<button>");
-    newCat.attr('class', 'NewButton');
-
-    // console.log(name, Newkey);
-    newCat.append(Newkey);
-    categories.append(newCat);
-
-    var movieTitle = NewCategory.val().trim();
-    var api1_key = "95f43ed4";
-    var queryURL1 = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + api1_key;
+    var movieTitle = $(this).val().trim();
+    console.log(movieTitle);
+    // var api1_key = "95f43ed4";
+    // var queryURL1 = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + api1_key;
     var api2_key= "e862ab4c2af4753ad517e279d0a0591a";
     var queryURL2 = "https://api.themoviedb.org/3/search/movie?query=" + movieTitle + "&api_key=" + api2_key;
     var settings = {
@@ -63,21 +58,18 @@ function search(){
         "data": "{}"
     };
 
-    $.ajax({
-        url: queryURL1,
-        method: "GET"
-    }).then(function (response) {
+    // $.ajax({
+    //     url: queryURL1,
+    //     method: "GET"
+    // }).then(function (response) {
 
 
-        console.log("API 1");
-        console.log(response);
+    //     console.log("API 1");
+    //     console.log(response);
 
-        $(".movieText").text(JSON.stringify(response));
+    //     $(".movieText").text(JSON.stringify(response));
 
-        // console.log(response.Ratings);
-        // console.log(response.Ratings[1]);
-
-    });
+    // });
 
     $.ajax(settings).done(function (response) {
         console.log("API 2"); 
@@ -85,9 +77,8 @@ function search(){
         mainContent.css('display', 'block');
         ResultDisplay(response);
     });
-    test = Newkey;
+    // test = movieTitle;
 
-    $(".welcomSection").css('display', 'none');
     mainContent.css('display', 'block');
    
 }
@@ -98,14 +89,46 @@ function ResultDisplay(resp){
         var Maindiv = $("<div>");
         var img = $("<img>");
         // var overviewDiv = $("<div>");
-        var titleDiv = $("<div>");
+        var titleBtn = $("<button>");
+        titleBtn.addClass('titleBtn');
+        titleBtn.val(resp.results[i].title);
         Maindiv.attr('class', 'col-3 posterDiv');
         img.attr('class', 'poster');
         img.attr('src',"http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
-        titleDiv.text(resp.results[i].title);
+        titleBtn.text(resp.results[i].title);
         // overviewDiv.text(resp.results[i].overview);
-        Maindiv.append(img,titleDiv);
-        mainContent.append(Maindiv);
+        Maindiv.append(img,titleBtn);
+        $(".placeHolderDiv").append(Maindiv);
     }
     
 }
+
+function placeholder(){
+    // creating a div for place holder
+    var pHolder = $("<div>");
+    pHolder.addClass('placeHolderDiv');
+    $(".container").html(pHolder);
+    
+
+    // creating a second div for buttons
+    var pHolder2 = $("<div>");
+    pHolder2.addClass('col-12 buttonsDivs');
+    pHolder2.attr('id', 'buttonSection');
+    $(".container").append(pHolder2);
+}
+
+function buttonsHere(){
+    var Newkey = NewCategory.val().trim();
+    var newCat = $("<button>");
+    newCat.val(NewCategory.val().trim());
+    newCat.attr('class', 'NewButton');
+
+    // console.log(name, Newkey);
+    newCat.append(Newkey);
+    $("#buttonSection").append(newCat);
+}
+
+$(document).on("click", ".NewButton", search);
+
+
+

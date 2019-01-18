@@ -14,11 +14,27 @@
 #error1 , #error2{
     color: rgb(199, 54, 54);
 }
-
-/* .poster{
-    float: left;
-} */
+.placeHolderDiv{
+    display: flex;
+    justify-content: center;
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    margin-top: 40px;
+    height: 500px;
+}
+.buttonsDivs{
+    border: solid black 1px;
+    height: 200px;
+    background-color: lightblue;
+    
+}
 
 .posterDiv{
     display: inline-block;
+}
+.poster{
+    width: 100%;
+    
+
 }
