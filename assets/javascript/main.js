@@ -147,7 +147,7 @@ function AddKey(){
         event.preventDefault();
         var NewWord = $(".KeyAdd").val().trim();
         buttonsHere(NewWord);
-    })
+    });
 }
 
 function MoreDetail(){
@@ -164,10 +164,7 @@ function MoreDetail(){
         Maindiv.append(titleBtn, img, overviewDiv);
         $(".placeHolderDiv").empty();
         $(".placeHolderDiv").append(Maindiv);
-
-
-
-})
+});
 }
 
 $(document).on("click", ".NewButton", search);
