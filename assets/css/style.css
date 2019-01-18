@@ -16,9 +16,11 @@
 }
 .placeHolderDiv{
     display: flex;
+    width: 100%;
     justify-content: center;
     background-image: url("background.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: relative;
     margin-top: 40px;
     height: 500px;
@@ -35,6 +37,18 @@
 }
 .poster{
     width: 100%;
+    
+}
+
+.titleBtn{
+    padding: 5px;
+    width: 100%;
+    margin-top: 6px;
+    background-color: rgb(88, 140, 207);
+    border: solid rgb(204, 109, 0 2px);
+    border-radius: 3px;
+    color: white;
+
     
 
 }
