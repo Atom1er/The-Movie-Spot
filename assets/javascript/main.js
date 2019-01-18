@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+    ////////////---Setting global variables /////
 var header = $("#header");
 var submit = $("#submit");
 var UserName = $("#UserName");
@@ -8,35 +11,57 @@ var error1 = $("#error1");
 var error2 = $("#error2");
 var name;
 var test;
+var counter = 1;
+var searchKey = [];
+var NewWordTest;
 
 
+
+    if(localStorage.getItem('myName') == null){
+        //////// --------- Home page
 submit.on("click", function (event) {
     event.preventDefault();
+    //--- Checking for valid Entry from User ---///
     error1.css('display', 'none');
     error2.css('display', 'none');
     var Newkey = NewCategory.val().trim();
     name = UserName.val().trim();
     localStorage.setItem('myName', name);
-    
-    if (Newkey !== "" && Newkey !== test && name !== "") {
-    //   search();
-      placeholder();
-      buttonsHere(Newkey);
-      newKeyword();
-      AddKey();
-      MoreDetail();
 
-    } else if (Newkey === test || Newkey ==="" || name === "") {
-        if(name === ""){
+    /// ---> If User Entry are valid then Start Program --- ////
+    if (Newkey !== "" && Newkey !== test && name !== "") {
+        placeholder();
+        buttonsHere(Newkey);
+        newKeyword();
+        AddKey();
+        MoreDetail();
+        $(document).on("click", ".NewButton", search);
+
+    } 
+    /// ---> If form are not fully file Show Error   --- ////
+    else if (Newkey === test || Newkey === "" || name === "") {
+        if (name === "") {
             error1.css('display', 'block');
             error1.text('Please enter a User name!');
-        } else if(Newkey === test || Newkey === ""){
+        } else if (Newkey === test || Newkey === "") {
             error2.css('display', 'block');
             error2.text('Please enter a valid/different search word!');
         }
     }
 
 });
+
+
+    } else if(localStorage.getItem('myName') != null){
+        placeholder();
+        buttonsHere("it");
+        newKeyword();
+        AddKey();
+        MoreDetail();
+        $(document).on("click", ".NewButton", search);
+    }
+
+
 
 //// {------Search engin for a specifique movie------}///////
 $(document).on("click", ".NewButton", function () {
@@ -45,13 +70,14 @@ $(document).on("click", ".NewButton", function () {
 
 });
 
-//// {--------Search engin API 1 & 2  SETTINGS ----}/////
-function search(){
+//// {--------Search engin API 2  SETTINGS ----}/////
+function search() {
     var movieTitle = $(this).val().trim();
     console.log(movieTitle);
-    // var api1_key = "95f43ed4";
-    // var queryURL1 = "http://www.omdbapi.com/?t=" + movieTitle + "&apikey=" + api1_key;
-    var api2_key= "e862ab4c2af4753ad517e279d0a0591a";
+
+    /// ---> API AUTH SET   --- ////
+    
+    var api2_key = "e862ab4c2af4753ad517e279d0a0591a";
     var queryURL2 = "https://api.themoviedb.org/3/search/movie?query=" + movieTitle + "&api_key=" + api2_key;
     var settings = {
         "async": true,
@@ -61,51 +87,56 @@ function search(){
         "headers": {},
         "data": "{}"
     };
-// getting response from API
+
+    // getting response from API
     $.ajax(settings).done(function (response) {
-        console.log("API 2"); 
+        console.log("API 2");
         console.log(response);
         mainContent.css('display', 'block');
-        ResultDisplay(response);
+        ResultDisplay(response, api2_key);
     });
-    // test = movieTitle;
 
     mainContent.css('display', 'block');
-   
+
 }
 
 // this function generates buttons for the movies
-function ResultDisplay(resp){
+function ResultDisplay(resp, apik) {
     $(".placeHolderDiv").empty();
-    for(var i = 0; i<4; i++){
+    for (var i = 0; i < 4; i++) {
+        
+    /// ---> Creating HTML TAGS FOR RESULT DISPLAY   --- ////
+    
         var Maindiv = $("<div>");
         var img = $("<img>");
-        // var overviewDiv = $("<div>");
         var titleBtn = $("<button>");
         titleBtn.addClass('titleBtn');
         titleBtn.val(resp.results[i].title);
         titleBtn.attr('id', resp.results[i].id);
         Maindiv.attr('class', 'col-3 posterDiv');
         img.attr('class', 'poster');
-        img.attr('src',"http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
+        img.attr('src', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
         titleBtn.text(resp.results[i].title);
-        titleBtn.data('data-title', resp.results[i].title);
 
-        titleBtn.data('data-poster', "http://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
+        /// ---> Saving every single movie infos into his Button --- ///
+        titleBtn.data('data-trailer', 'https://api.themoviedb.org/3/movie/' + resp.results[i].id + '/videos?api_key=' + apik);
+        titleBtn.data('data-title', resp.results[i].title);
+        titleBtn.data('data-poster', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
         titleBtn.data('data-overview', resp.results[i].overview);
-        // overviewDiv.text(resp.results[i].overview);
-        Maindiv.append(img,titleBtn);
+
+        /// ---> appending Result into placeHolder
+        Maindiv.append(img, titleBtn);
         $(".placeHolderDiv").append(Maindiv);
     }
-    
+
 }
 
-function placeholder(){
+function placeholder() {
     // creating a div for place holder
     var pHolder = $("<div>");
     pHolder.addClass('jumbotron placeHolderDiv');
     $(".container").html(pHolder);
-    
+
 
     // creating a second div for buttons
     var pHolder2 = $("<div>");
@@ -115,7 +146,7 @@ function placeholder(){
 }
 
 // creates buttons for the movies
-function buttonsHere(value){
+function buttonsHere(value) {
     var Newkey = NewCategory.val().trim();
     var newCat = $("<button>");
     newCat.val(value);
@@ -126,7 +157,8 @@ function buttonsHere(value){
     $("#buttonSection").append(newCat);
 }
 
-function newKeyword(){
+function newKeyword() {
+
     var keyWord = $("<form>");
     keyWord.addClass('form-inline');
     var userInput = $("<input>");
@@ -142,32 +174,78 @@ function newKeyword(){
     $(".container").prepend(span, keyWord);
 }
 
-function AddKey(){
-    $(document).on('click', '.AddKeyWord', function(event){
+function AddKey() {
+    $(document).on('click', '.AddKeyWord', function (event) {
         event.preventDefault();
         var NewWord = $(".KeyAdd").val().trim();
-        buttonsHere(NewWord);
+        
+        if (NewWord !== NewWordTest && NewWord !== ""){
+            searchKey.push(NewWord);
+            JSON.stringify(localStorage.setItem("Key_word", searchKey));
+            console.log(localStorage.getItem("Key_word"));
+            buttonsHere(NewWord);
+            NewWordTest = NewWord;
+        }
     });
 }
 
-function MoreDetail(){
-    $(document).on('click', '.titleBtn', function(event){
+function MoreDetail() {
+    $(document).on('click', '.titleBtn', function (event) {
         event.preventDefault();
         var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
         var img = $("<img>");
+        img.addClass('moreDetailsImg');
         var overviewDiv = $("<div>");
+        overviewDiv.addClass('overviewClass');
         var titleBtn = $("<div>");
+        titleBtn.addClass('titleOverview');
+        //////// ----------> Getting Video Trailer Using AJAX <--------///////////////
+
+        //API SETTING
+        
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": $(this).data("data-trailer"),
+            "method": "GET",
+            "headers": {},
+            "data": "{}"
+        };
+
+        // getting response from API //
+        var link;
+        var video;
+        $.ajax(settings).done(function (response) {
+            console.log("API trailerTest");
+            console.log(response);
+            link = "https://www.youtube.com/embed/" + response.results[0].key + "?autoplay=1";
+
+            $(".Trailer").attr('src', link);
+        });
+
+        /////// -----------> END AJAX REQUEST <------------/////////////////////
+            
+        video = $('<iframe />', {
+            class: 'Trailer',
+            src: link,
+        });
+
+
+
         img.attr('src', $(this).data("data-poster"));
         titleBtn.text($(this).data("data-title"));
         overviewDiv.text($(this).data("data-overview"));
-        Maindiv.append(titleBtn, img, overviewDiv);
+        Maindiv.append(titleBtn, img, video, overviewDiv);
+        // TrailerSetting($(this).data("data-trailer"));
         $(".placeHolderDiv").empty();
         $(".placeHolderDiv").append(Maindiv);
-});
+    });
 }
 
-$(document).on("click", ".NewButton", search);
 
 
 
+
+
+})
