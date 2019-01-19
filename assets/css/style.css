@@ -50,8 +50,8 @@ span {
 /* style for keyword buttons */
 .NewButton{
     text-transform: capitalize;
-    width: 100px;
-    padding: 2px;
+    width: fit-content;
+    padding: 3px;
     margin: 1%;
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
@@ -133,8 +133,8 @@ span {
     position: absolute;
     letter-spacing: 3px;
     width: fit-content;
-    margin-left: 5%;
-    margin-top: -7%;
+    margin-left: 10px;
+    margin-top: -40px;
     font-size: 30px;
     color: black;
     font-weight: bolder;
@@ -142,14 +142,16 @@ span {
     font-family: fantasy;
 }
 .moreDetailsImg{
-    width: 90%;
-    height: 365px;
+    width: 100%;
+    max-width: 300px;
+    max-height: 400px;
+    height: auto;
     margin-top: 2%;
     display: inline-block;
+
     /* float: right; */
 }
 .overviewClass{
-    margin: 5%;
     padding: 10px;
     display: inline-block;
     color: rgb(145, 53, 0);
@@ -166,11 +168,12 @@ span {
     /* width: 750px; */
     text-align: justify;
     overflow: hidden;
+    margin-top: 10px;
 }
 
 .Trailer{
     width: 90%;
-    margin: 5%;
+    
 }
 
 .form-inline {

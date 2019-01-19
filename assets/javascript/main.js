@@ -195,15 +195,15 @@ function AddKey() {
 function MoreDetail() {
     $(document).on('click', '.titleBtn', function (event) {
         event.preventDefault();
-        var PickedMovie = $(this).val();
+        // var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
         Maindiv.addClass('row');
         var titleBtn = $("<div>");
         titleBtn.addClass('titleOverview row');
         var TrailerOverviewDiv = $("<div>");
-        TrailerOverviewDiv.addClass('col-8');
+        TrailerOverviewDiv.addClass('col-7');
         var img = $("<img>");
-        img.addClass('moreDetailsImg col-4');
+        img.addClass('moreDetailsImg col-5');
         var overviewDiv = $("<div>");
         overviewDiv.addClass('overviewClass row');
 
