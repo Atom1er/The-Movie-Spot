@@ -170,7 +170,7 @@ function newKeyword() {
     var userFromStorage = localStorage.getItem("myName");
     var span = $("<span>");
     span.addClass('spanName');
-    span.text(userFromStorage);
+    span.text("Welcome, " + userFromStorage);
     $(".container").prepend(span, keyWord);
 }
 

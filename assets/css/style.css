@@ -91,8 +91,11 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(145, 53, 0);
     text-shadow: darkgray 3px;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
+    float: right;
+    padding-top: 10px;
+    padding-right: 30px;
 }
 
 
