@@ -1,40 +1,6 @@
 body{
     font-family: monospace;
     color: rgb(182, 182, 182);
-    background-image:url(../images/body.jpg);
-}
-
-/* this is the "Click to enter!!" */
-.overlay {
-    background: rgba(0,0,0,0);
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-span {
-    text-transform: capitalize;
-}
-
-.test {
-    font-size: 50px;
-}
-
-.firstCap {
-    text-transform: capitalize;
-}
-
-.container-fluid {
-    padding-top: 40px;
-}
-
-#userInputJ{
-    margin-top: 20px;
-    background-image: url("../images/background-Ry.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     background-blend-mode: multiply;
     color: white;
     text-align: center;
@@ -67,13 +33,12 @@ span {
 .placeHolderDiv{
     display: flex;
     width: 100%;
-    justify-content: center;
-    background-image: url("../images/background-Ry.jpg");
+    background-image: url("../image/background-Ry.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
     margin-top: 10px;
-    height: 500px;
+    height: 80%;
 }
 
 /* style for area with the key words buttons */
@@ -88,9 +53,7 @@ span {
 
 
 /* to display the movies next to each other after click on key word button */
-.posterDiv{
-    display: inline-block;
-}
+
 .poster{
     width: 100%;
 }
@@ -132,49 +95,47 @@ span {
 
 }
 .titleOverview{
+    position: absolute;
     letter-spacing: 3px;
-    position: relative;
-    right: 10%;
-    margin-top: -70px;
-    padding: 4px;
-    font-size: 50px;
+    width: fit-content;
+    margin-left: 5%;
+    margin-top: -7%;
+    font-size: 30px;
     color: black;
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
 }
 .moreDetailsImg{
-    width: 275px;
-    height: 100%;
-    border: white solid 3px;
+    width: 90%;
+    height: 365px;
+    margin-top: 2%;
     display: inline-block;
-    float: right;
+    /* float: right; */
 }
 .overviewClass{
-    padding: 5px 10px;
+    margin: 5%;
+    padding: 10px;
     display: inline-block;
     color: rgb(145, 53, 0);
-    width: 70%;
+    /* width: 70%; */
     background-color:#fff;
     opacity: 0.7;
     border-radius: 5px;
-    position: relative;
-    top: 10px;
-    right: 10px;
+    /* position: relative; */
+    /* top: 10px; */
+    /* right: 10px; */
     font-weight: bold;
     font-size: 18px;
-    height: 150px;
-    width: 750px;
+    /* height: 150px; */
+    /* width: 750px; */
     text-align: justify;
+    overflow: hidden;
 }
 
-.Trailer {
-    height: 250px;
-    width: 750px;
-    float: right;
-    position: relative;
-    right: 3%;
-    top: 5%;
+.Trailer{
+    width: 90%;
+    margin: 5%;
 }
 
 .form-inline {

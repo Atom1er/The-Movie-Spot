@@ -197,12 +197,16 @@ function MoreDetail() {
         event.preventDefault();
         var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
-        var img = $("<img>");
-        img.addClass('moreDetailsImg');
-        var overviewDiv = $("<div>");
-        overviewDiv.addClass('overviewClass');
+        Maindiv.addClass('row');
         var titleBtn = $("<div>");
-        titleBtn.addClass('titleOverview');
+        titleBtn.addClass('titleOverview row');
+        var TrailerOverviewDiv = $("<div>");
+        TrailerOverviewDiv.addClass('col-8');
+        var img = $("<img>");
+        img.addClass('moreDetailsImg col-4');
+        var overviewDiv = $("<div>");
+        overviewDiv.addClass('overviewClass row');
+
         //////// ----------> Getting Video Trailer Using AJAX <--------///////////////
 
         //API SETTING
@@ -230,7 +234,7 @@ function MoreDetail() {
         /////// -----------> END AJAX REQUEST <------------/////////////////////
             
         video = $('<iframe />', {
-            class: 'Trailer',
+            class: 'Trailer row',
             src: link,
         });
 
@@ -239,16 +243,12 @@ function MoreDetail() {
         img.attr('src', $(this).data("data-poster"));
         titleBtn.text($(this).data("data-title"));
         overviewDiv.text($(this).data("data-overview"));
-        Maindiv.append(titleBtn, img, video, overviewDiv);
+        TrailerOverviewDiv.append(video, overviewDiv);
+        Maindiv.append(titleBtn,TrailerOverviewDiv, img);
         // TrailerSetting($(this).data("data-trailer"));
         $(".placeHolderDiv").empty();
         $(".placeHolderDiv").append(Maindiv);
     });
 }
-
-
-
-
-
 
 });
