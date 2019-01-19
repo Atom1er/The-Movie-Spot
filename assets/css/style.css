@@ -2,9 +2,19 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(182, 182, 182);
 }
+
+.overlay {
+    background: rgba(0,0,0,0);
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #userInputJ{
     margin-top: 20px;
-    background-image: url("background.jpg");
+    background-image: url("../images/background-Ry.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
@@ -38,7 +48,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: center;
-    background-image: url("background.jpg");
+    background-image: url("../images/background-Ry.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
@@ -63,7 +73,6 @@ body{
 }
 .poster{
     width: 100%;
-    
 }
 
 .titleBtn{
@@ -111,7 +120,7 @@ body{
     font-size: 18px;
     color: green;
     font-weight: bold;
-    background-color: white;
+    background-color: black;
     opacity: 0.7;
 
 }
@@ -131,4 +140,10 @@ body{
     background-color: rgb(0, 0, 0);
     opacity: 0.5;
     border-radius: 5px;
+}
+
+.Trailer {
+    height: 250px;
+    width: 500px;
+    float: right;
 }

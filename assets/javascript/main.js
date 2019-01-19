@@ -15,7 +15,10 @@ var counter = 1;
 var searchKey = [];
 var NewWordTest;
 
-
+$("#video").on("click", function(){
+    $("#video").hide();
+    $(".container-fluid").show();
+});
 
     if(localStorage.getItem('myName') == null){
         //////// --------- Home page
@@ -63,14 +66,14 @@ submit.on("click", function (event) {
 
 
 
-//// {------Search engin for a specifique movie------}///////
+//// {------Search engine for a specifique movie------}///////
 $(document).on("click", ".NewButton", function () {
     $(".welcomSection").css('display', 'none');
     mainContent.css('display', 'block');
 
 });
 
-//// {--------Search engin API 2  SETTINGS ----}/////
+//// {--------Search engine API 2  SETTINGS ----}/////
 function search() {
     var movieTitle = $(this).val().trim();
     console.log(movieTitle);
