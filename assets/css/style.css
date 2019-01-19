@@ -172,10 +172,16 @@ span {
 }
 
 .Trailer{
-    width: 90%;
+    width: 600px;
+    height: 400px;
     
 }
 
 .form-inline {
     padding-bottom: 20px;
+}
+
+.modal-content{
+    width: 600px;
+    height: 400px;
 }
