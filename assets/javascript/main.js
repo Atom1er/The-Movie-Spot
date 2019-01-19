@@ -195,11 +195,11 @@ function MoreDetail() {
         var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
         var img = $("<img>");
-        img.addClass('moreDetailsImg');
+        img.addClass('moreDetailsImg col-4');
         var overviewDiv = $("<div>");
-        overviewDiv.addClass('overviewClass');
+        overviewDiv.addClass('overviewClass row col-12');
         var titleBtn = $("<div>");
-        titleBtn.addClass('titleOverview');
+        titleBtn.addClass('titleOverview row');
         //////// ----------> Getting Video Trailer Using AJAX <--------///////////////
 
         //API SETTING
@@ -227,16 +227,20 @@ function MoreDetail() {
         /////// -----------> END AJAX REQUEST <------------/////////////////////
             
         video = $('<iframe />', {
-            class: 'Trailer',
+            class: 'Trailer col-8',
             src: link,
         });
+        
 
 
 
         img.attr('src', $(this).data("data-poster"));
         titleBtn.text($(this).data("data-title"));
         overviewDiv.text($(this).data("data-overview"));
-        Maindiv.append(titleBtn, img, video, overviewDiv);
+        var PosterTrailer =$("<div>");
+        PosterTrailer.append(img, video);
+        PosterTrailer.addClass('row'); 
+        Maindiv.append(titleBtn, PosterTrailer , overviewDiv);
         // TrailerSetting($(this).data("data-trailer"));
         $(".placeHolderDiv").empty();
         $(".placeHolderDiv").append(Maindiv);
