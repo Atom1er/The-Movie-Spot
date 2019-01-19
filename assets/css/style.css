@@ -1,6 +1,7 @@
 body{
     font-family: monospace;
     color: rgb(182, 182, 182);
+<<<<<<< HEAD
     background-image:url(../images/body.jpg);
 }
 
@@ -22,17 +23,48 @@ span {
     font-size: 50px;
 }
 
+=======
+    background-image:url(../image/body.jpg);
+}
+
+/* this is the "Click to enter!!" */
+.overlay {
+    background: rgba(0,0,0,0);
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    text-transform: capitalize;
+}
+
+.test {
+    font-size: 50px;
+}
+
+>>>>>>> origin/master
 .firstCap {
     text-transform: capitalize;
 }
 
+<<<<<<< HEAD
 .container-fluid {
+=======
+.MainContent {
+>>>>>>> origin/master
     padding-top: 40px;
 }
 
 #userInputJ{
     margin-top: 20px;
+<<<<<<< HEAD
     background-image: url("../images/background-Ry.jpg");
+=======
+    background-image: url("../image/background-Ry.jpg");
+>>>>>>> origin/master
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
@@ -50,8 +82,13 @@ span {
 /* style for keyword buttons */
 .NewButton{
     text-transform: capitalize;
+<<<<<<< HEAD
     width: 100px;
     padding: 2px;
+=======
+    width: fit-content;
+    padding: 3px;
+>>>>>>> origin/master
     margin: 1%;
     border-radius: 4px;
     background-color: rgb(255, 255, 255);
@@ -68,12 +105,16 @@ span {
     display: flex;
     width: 100%;
     justify-content: center;
+<<<<<<< HEAD
     background-image: url("../images/background-Ry.jpg");
+=======
+    background-image: url("../image/background-Ry.jpg");
+>>>>>>> origin/master
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
     margin-top: 10px;
-    height: 500px;
+    height: 80%;
 }
 
 /* style for area with the key words buttons */
@@ -88,9 +129,7 @@ span {
 
 
 /* to display the movies next to each other after click on key word button */
-.posterDiv{
-    display: inline-block;
-}
+
 .poster{
     width: 100%;
 }
@@ -132,18 +171,28 @@ span {
 
 }
 .titleOverview{
+<<<<<<< HEAD
     letter-spacing: 3px;
     position: relative;
     right: 10%;
     margin-top: -70px;
     padding: 4px;
     font-size: 50px;
+=======
+    position: absolute;
+    letter-spacing: 3px;
+    width: fit-content;
+    margin-left: 10px;
+    margin-top: -40px;
+    font-size: 30px;
+>>>>>>> origin/master
     color: black;
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
 }
 .moreDetailsImg{
+<<<<<<< HEAD
     width: 275px;
     height: 100%;
     border: white solid 3px;
@@ -175,6 +224,40 @@ span {
     position: relative;
     right: 3%;
     top: 5%;
+=======
+    width: 100%;
+    max-width: 300px;
+    max-height: 400px;
+    height: auto;
+    margin-top: 2%;
+    display: inline-block;
+
+    /* float: right; */
+}
+.overviewClass{
+    padding: 10px;
+    display: inline-block;
+    color: rgb(145, 53, 0);
+    /* width: 70%; */
+    background-color:#fff;
+    opacity: 0.7;
+    border-radius: 5px;
+    /* position: relative; */
+    /* top: 10px; */
+    /* right: 10px; */
+    font-weight: bold;
+    font-size: 18px;
+    /* height: 150px; */
+    /* width: 750px; */
+    text-align: justify;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.Trailer{
+    width: 90%;
+    
+>>>>>>> origin/master
 }
 
 .form-inline {
