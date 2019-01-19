@@ -255,9 +255,4 @@ function MoreDetail() {
     });
 }
 
-
-
-
-
-
 });

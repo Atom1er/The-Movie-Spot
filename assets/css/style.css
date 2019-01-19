@@ -2,6 +2,7 @@ body{
     font-family: monospace;
     color: rgb(182, 182, 182);
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-image:url(../images/body.jpg);
 }
 
@@ -67,6 +68,8 @@ span {
 >>>>>>> origin/master
     background-repeat: no-repeat;
     background-size: cover;
+=======
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     background-blend-mode: multiply;
     color: white;
     text-align: center;
@@ -104,12 +107,16 @@ span {
 .placeHolderDiv{
     display: flex;
     width: 100%;
+<<<<<<< HEAD
     justify-content: center;
 <<<<<<< HEAD
     background-image: url("../images/background-Ry.jpg");
 =======
     background-image: url("../image/background-Ry.jpg");
 >>>>>>> origin/master
+=======
+    background-image: url("../image/background-Ry.jpg");
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
@@ -172,6 +179,7 @@ span {
 }
 .titleOverview{
 <<<<<<< HEAD
+<<<<<<< HEAD
     letter-spacing: 3px;
     position: relative;
     right: 10%;
@@ -179,19 +187,25 @@ span {
     padding: 4px;
     font-size: 50px;
 =======
+=======
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     position: absolute;
     letter-spacing: 3px;
     width: fit-content;
     margin-left: 10px;
     margin-top: -40px;
     font-size: 30px;
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     color: black;
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
 }
 .moreDetailsImg{
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 275px;
     height: 100%;
@@ -229,6 +243,10 @@ span {
     max-width: 300px;
     max-height: 400px;
     height: auto;
+=======
+    width: 90%;
+    height: 365px;
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     margin-top: 2%;
     display: inline-block;
 
@@ -256,8 +274,12 @@ span {
 
 .Trailer{
     width: 90%;
+<<<<<<< HEAD
     
 >>>>>>> origin/master
+=======
+    margin: 5%;
+>>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
 }
 
 .form-inline {
