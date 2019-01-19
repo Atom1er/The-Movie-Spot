@@ -15,7 +15,10 @@ var counter = 1;
 var searchKey = [];
 var NewWordTest;
 
-
+$("#video").on("click", function(){
+    $("#video").hide();
+    $(".container-fluid").show();
+});
 
     if(localStorage.getItem('myName') == null){
         //////// --------- Home page
@@ -63,14 +66,14 @@ submit.on("click", function (event) {
 
 
 
-//// {------Search engin for a specifique movie------}///////
+//// {------Search engine for a specifique movie------}///////
 $(document).on("click", ".NewButton", function () {
     $(".welcomSection").css('display', 'none');
     mainContent.css('display', 'block');
 
 });
 
-//// {--------Search engin API 2  SETTINGS ----}/////
+//// {--------Search engine API 2  SETTINGS ----}/////
 function search() {
     var movieTitle = $(this).val().trim();
     console.log(movieTitle);
@@ -164,13 +167,13 @@ function newKeyword() {
     var userInput = $("<input>");
     userInput.addClass('form-control mr-sm-2 KeyAdd');
     var button2 = $("<button>");
-    button2.text('Add Keyword');
+    button2.text('Search Movie');
     button2.addClass('btn btn-outline-success my-2 my-sm-0 AddKeyWord');
     keyWord.append(userInput, button2);
     var userFromStorage = localStorage.getItem("myName");
     var span = $("<span>");
     span.addClass('spanName');
-    span.text(userFromStorage);
+    span.text("Welcome, " + userFromStorage);
     $(".container").prepend(span, keyWord);
 }
 
@@ -194,12 +197,16 @@ function MoreDetail() {
         event.preventDefault();
         var PickedMovie = $(this).val();
         var Maindiv = $("<div>");
+        Maindiv.addClass('row');
+        var titleBtn = $("<div>");
+        titleBtn.addClass('titleOverview row');
+        var TrailerOverviewDiv = $("<div>");
+        TrailerOverviewDiv.addClass('col-8');
         var img = $("<img>");
         img.addClass('moreDetailsImg col-4');
         var overviewDiv = $("<div>");
-        overviewDiv.addClass('overviewClass row col-12');
-        var titleBtn = $("<div>");
-        titleBtn.addClass('titleOverview row');
+        overviewDiv.addClass('overviewClass row');
+
         //////// ----------> Getting Video Trailer Using AJAX <--------///////////////
 
         //API SETTING
@@ -227,20 +234,17 @@ function MoreDetail() {
         /////// -----------> END AJAX REQUEST <------------/////////////////////
             
         video = $('<iframe />', {
-            class: 'Trailer col-8',
+            class: 'Trailer row',
             src: link,
         });
-        
 
 
 
         img.attr('src', $(this).data("data-poster"));
         titleBtn.text($(this).data("data-title"));
         overviewDiv.text($(this).data("data-overview"));
-        var PosterTrailer =$("<div>");
-        PosterTrailer.append(img, video);
-        PosterTrailer.addClass('row'); 
-        Maindiv.append(titleBtn, PosterTrailer , overviewDiv);
+        TrailerOverviewDiv.append(video, overviewDiv);
+        Maindiv.append(titleBtn,TrailerOverviewDiv, img);
         // TrailerSetting($(this).data("data-trailer"));
         $(".placeHolderDiv").empty();
         $(".placeHolderDiv").append(Maindiv);
