@@ -1,30 +1,6 @@
 body{
     font-family: monospace;
     color: rgb(182, 182, 182);
-<<<<<<< HEAD
-<<<<<<< HEAD
-    background-image:url(../images/body.jpg);
-}
-
-/* this is the "Click to enter!!" */
-.overlay {
-    background: rgba(0,0,0,0);
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-span {
-    text-transform: capitalize;
-}
-
-.test {
-    font-size: 50px;
-}
-
-=======
     background-image:url(../image/body.jpg);
 }
 
@@ -46,30 +22,19 @@ span {
     font-size: 50px;
 }
 
->>>>>>> origin/master
 .firstCap {
     text-transform: capitalize;
 }
 
-<<<<<<< HEAD
-.container-fluid {
-=======
 .MainContent {
->>>>>>> origin/master
     padding-top: 40px;
 }
 
 #userInputJ{
     margin-top: 20px;
-<<<<<<< HEAD
-    background-image: url("../images/background-Ry.jpg");
-=======
-    background-image: url("../image/background-Ry.jpg");
->>>>>>> origin/master
+    background-image: url(/assets/image/background-Ry.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-=======
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     background-blend-mode: multiply;
     color: white;
     text-align: center;
@@ -85,19 +50,6 @@ span {
 /* style for keyword buttons */
 .NewButton{
     text-transform: capitalize;
-<<<<<<< HEAD
-    width: 100px;
-    padding: 2px;
-=======
-    width: fit-content;
-    padding: 3px;
->>>>>>> origin/master
-    margin: 1%;
-    border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    border: solid rgb(0, 189, 16) 1px;
-    border-radius: 3px;
-    color: rgb(0, 189, 16);
 }
 
 #error1 , #error2{
@@ -107,16 +59,8 @@ span {
 .placeHolderDiv{
     display: flex;
     width: 100%;
-<<<<<<< HEAD
     justify-content: center;
-<<<<<<< HEAD
-    background-image: url("../images/background-Ry.jpg");
-=======
-    background-image: url("../image/background-Ry.jpg");
->>>>>>> origin/master
-=======
-    background-image: url("../image/background-Ry.jpg");
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
+    background-image: url(/assets/image/background-Ry.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
@@ -178,35 +122,18 @@ span {
 
 }
 .titleOverview{
-<<<<<<< HEAD
-<<<<<<< HEAD
-    letter-spacing: 3px;
-    position: relative;
-    right: 10%;
-    margin-top: -70px;
-    padding: 4px;
-    font-size: 50px;
-=======
-=======
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     position: absolute;
     letter-spacing: 3px;
     width: fit-content;
     margin-left: 10px;
     margin-top: -40px;
     font-size: 30px;
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
     color: black;
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
 }
 .moreDetailsImg{
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 275px;
     height: 100%;
     border: white solid 3px;
@@ -238,48 +165,6 @@ span {
     position: relative;
     right: 3%;
     top: 5%;
-=======
-    width: 100%;
-    max-width: 300px;
-    max-height: 400px;
-    height: auto;
-=======
-    width: 90%;
-    height: 365px;
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
-    margin-top: 2%;
-    display: inline-block;
-
-    /* float: right; */
-}
-.overviewClass{
-    padding: 10px;
-    display: inline-block;
-    color: rgb(145, 53, 0);
-    /* width: 70%; */
-    background-color:#fff;
-    opacity: 0.7;
-    border-radius: 5px;
-    /* position: relative; */
-    /* top: 10px; */
-    /* right: 10px; */
-    font-weight: bold;
-    font-size: 18px;
-    /* height: 150px; */
-    /* width: 750px; */
-    text-align: justify;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.Trailer{
-    width: 90%;
-<<<<<<< HEAD
-    
->>>>>>> origin/master
-=======
-    margin: 5%;
->>>>>>> 57ae3efdd5bfdfcba88a611b623f7de08bfb17af
 }
 
 .form-inline {

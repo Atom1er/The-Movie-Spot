@@ -16,11 +16,7 @@ var searchKey = [];
 var NewWordTest;
 
 $("#video").on("click", function(){
-<<<<<<< HEAD
     $("#video").fadeOut(2000);
-=======
-    $("#video").hide();
->>>>>>> origin/master
     $(".container-fluid").show();
 });
 
@@ -254,5 +250,10 @@ function MoreDetail() {
         $(".placeHolderDiv").append(Maindiv);
     });
 }
+
+
+
+
+
 
 });
