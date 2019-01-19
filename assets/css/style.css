@@ -1,8 +1,10 @@
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: monospace;
     color: rgb(182, 182, 182);
+    background-image:url(../images/body.jpg);
 }
 
+/* this is the "Click to enter!!" */
 .overlay {
     background: rgba(0,0,0,0);
     position: absolute;
@@ -10,6 +12,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+span {
+    text-transform: capitalize;
+}
+
+.test {
+    font-size: 50px;
+}
+
+.firstCap {
+    text-transform: capitalize;
+}
+
+.container-fluid {
+    padding-top: 40px;
 }
 
 #userInputJ{
@@ -31,6 +49,7 @@ body{
 }
 /* style for keyword buttons */
 .NewButton{
+    text-transform: capitalize;
     width: 100px;
     padding: 2px;
     margin: 1%;
@@ -63,7 +82,7 @@ body{
     height: fit-content;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-image: linear-gradient(to right, rgb(104, 179, 202) , rgb(0, 68, 156));
+    /* background-image: linear-gradient(to right, rgb(104, 179, 202) , rgb(0, 68, 156)); */
     
 }
 
@@ -108,43 +127,56 @@ body{
     padding-right: 30px;
 }
 
-
 .mainDivClass{
     display: flex;
 
 }
 .titleOverview{
-    position: absolute;
-    margin-top: -40px;
-    width: content;
+    letter-spacing: 3px;
+    position: relative;
+    right: 10%;
+    margin-top: -70px;
     padding: 4px;
-    font-size: 18px;
-    color: green;
-    font-weight: bold;
-    background-color: black;
-    opacity: 0.7;
-
+    font-size: 50px;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    font-family: fantasy;
 }
 .moreDetailsImg{
-    width: 250px;
+    width: 275px;
     height: 100%;
     border: white solid 3px;
     display: inline-block;
-    
+    float: right;
 }
 .overviewClass{
-    margin-left: 20px;
-    padding: 10px;
+    padding: 5px 10px;
     display: inline-block;
-    color: rgb(0, 122, 0);
+    color: rgb(145, 53, 0);
     width: 70%;
-    background-color: rgb(0, 0, 0);
-    opacity: 0.5;
+    background-color:#fff;
+    opacity: 0.7;
     border-radius: 5px;
+    position: relative;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    height: 150px;
+    width: 750px;
+    text-align: justify;
 }
 
 .Trailer {
     height: 250px;
-    width: 500px;
+    width: 750px;
     float: right;
+    position: relative;
+    right: 3%;
+    top: 5%;
+}
+
+.form-inline {
+    padding-bottom: 20px;
 }

@@ -167,7 +167,7 @@ function newKeyword() {
     var userInput = $("<input>");
     userInput.addClass('form-control mr-sm-2 KeyAdd');
     var button2 = $("<button>");
-    button2.text('Add Keyword');
+    button2.text('Search Movie');
     button2.addClass('btn btn-outline-success my-2 my-sm-0 AddKeyWord');
     keyWord.append(userInput, button2);
     var userFromStorage = localStorage.getItem("myName");
