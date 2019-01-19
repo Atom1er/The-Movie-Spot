@@ -16,7 +16,7 @@ var searchKey = [];
 var NewWordTest;
 
 $("#video").on("click", function(){
-    $("#video").hide();
+    $("#video").fadeOut(2000);
     $(".container-fluid").show();
 });
 
