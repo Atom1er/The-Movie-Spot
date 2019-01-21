@@ -15,8 +15,16 @@ var counter = 1;
 var searchKey = [];
 var NewWordTest;
 
+// a timer is set if user does not click that next(Ry)
+setInterval(function() {
+    $("#video").fadeOut(2000);
+    $(".h1click").text("ENJOY");
+    $(".container-fluid").show();
+}, 12000);
+// if user clicks video will fade and text will turn to ENJOY than next (Ry)
 $("#video").on("click", function(){
     $("#video").fadeOut(2000);
+    $(".h1click").text("Enjoy!");
     $(".container-fluid").show();
 });
 
@@ -250,10 +258,5 @@ function MoreDetail() {
         $(".placeHolderDiv").append(Maindiv);
     });
 }
-
-
-
-
-
 
 });
