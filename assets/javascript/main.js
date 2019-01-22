@@ -15,6 +15,20 @@ $(document).ready(function () {
     var searchKey = [];
     var NewWordTest;
 
+    // a timer is set if user does not click that next(Ry)
+    setInterval(function () {
+        $("#video").fadeOut(2000);
+        $(".h1click").text("ENJOY");
+        $(".container-fluid").show();
+    }, 12000);
+    // if user clicks video will fade and text will turn to ENJOY than next (Ry)
+    $("#video").on("click", function () {
+        $("#video").fadeOut(2000);
+        $(".h1click").text("Enjoy!");
+        $(".container-fluid").show();
+    });
+
+
     $("#video").on("click", function () {
         $("#video").hide();
         $(".container-fluid").show();
@@ -34,6 +48,7 @@ $(document).ready(function () {
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
                 placeholder();
+                SlideShow();
                 buttonsHere(Newkey);
                 newKeyword();
                 AddKey();
@@ -57,6 +72,7 @@ $(document).ready(function () {
 
     } else if (localStorage.getItem('myName') != null) {
         placeholder();
+        SlideShow();
         buttonsHere("it");
         newKeyword();
         AddKey();
@@ -131,6 +147,49 @@ $(document).ready(function () {
             Maindiv.append(img, titleBtn);
             $(".placeHolderDiv").append(Maindiv);
         }
+
+    }
+
+    function SlideShow() {
+        var slideTags = '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" width="1200px" "height=600px">';
+        slideTags += '<ol class="carousel-indicators">';
+        slideTags += '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>';
+        slideTags += '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>';
+        slideTags += '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>';
+        slideTags += ' </ol>';
+        slideTags += '<div class="carousel-inner">';
+
+        slideTags += '<div class="carousel-item active">';
+        slideTags += '<img width="1200px" "height=600px" src="../assets/image/1.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<div class="carousel-caption d-none d-md-block">';
+        slideTags += '<h5 class="SlideShowText">Justice League</h5>';
+        slideTags += '<div class="SlideShowText">ustice League is a 2017 American superhero film based on the DC Comics superhero</div>';
+        slideTags += '</div>';
+        slideTags += '</div>';
+        slideTags += '<div class="carousel-item">';
+        slideTags += '<img width="1200px" "height=600px" src="../assets/image/2.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<div class="carousel-caption d-none d-md-block">';
+        slideTags += '<h5 class="SlideShowText">FNAF Movie</h5>';
+        slideTags += '<div class="SlideShowText" >Five Nights at Freddy (often abbreviated to FNaF) is a media franchise based around an indie video game series created, designed, developed, and published by Scott Cawthon for Microsoft Windows</div>';
+        slideTags += '</div>';
+        slideTags += '</div>';
+        slideTags += '<div class="carousel-item">';
+        slideTags += '<img width="1200px" "height=600px" src="../assets/image/3.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<div class="carousel-caption d-none d-md-block">';
+        slideTags += '<h5 class="SlideShowText">The Expendables 4</h5>';
+        slideTags += '<div class="SlideShowText">The Expendables is an American series of ensemble action films written by and starring Sylvester Stallone and originally created by David Callaham.</div>';
+        slideTags += '</div>';
+        slideTags += '</div>';
+        slideTags += '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">';
+        slideTags += '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
+        slideTags += '<span class="sr-only">Previous</span>';
+        slideTags += '</a>';
+        slideTags += '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">';
+        slideTags += '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
+        slideTags += '<span class="sr-only">Next</span>';
+        slideTags += '</a>';
+        slideTags += '</div>';
+        $(".placeHolderDiv").html(slideTags);
 
     }
 
@@ -211,9 +270,9 @@ $(document).ready(function () {
 
             //API SETTING
 
-           
+
             // getting response from API //
-            
+
 
             var BtnTrailer = $("<button>");
             BtnTrailer.addClass('BtnTrailer');
@@ -234,79 +293,79 @@ $(document).ready(function () {
 
         });
 
-           
+
 
 
 
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
- $(document).on('click', '.BtnTrailer', PlayTrailer);
+    $(document).on('click', '.BtnTrailer', PlayTrailer);
 
-            function PlayTrailer() {
-
-
-                var settings = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url": $(this).data("data-trailer"),
-                    "method": "GET",
-                    "headers": {},
-                    "data": "{}"
-                };
-    
-
-                var link;
-                var video;
-
-                $.ajax(settings).done(function (response) {
-                    console.log("API trailerTest");
-                    console.log(response);
-                    link = "https://www.youtube.com/embed/" + response.results[0].key + "?autoplay=1";
-    
-                    $(".Trailer").attr('src', link);
-                });
-    
-                /////// -----------> END AJAX REQUEST <------------/////////////////////
-    
-                video = $('<iframe />', {
-                    class: 'Trailer row',
-                    src: link,
-                });
+    function PlayTrailer() {
 
 
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": $(this).data("data-trailer"),
+            "method": "GET",
+            "headers": {},
+            "data": "{}"
+        };
 
-                // var div = $("<div>");
-                // var id = "";
-                // div.addClass('modal-body Trailer');
-                // div.append(video);
-                modalString = "";
-                modalString += "<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>";
-                modalString += "<div class='modal-dialog modal-dialog-centered' role='document'>";
-                // modalString += "<div class='modal-header'>";
-                modalString += "<div class='modal-content'>";
-                modalString += "</div>";
-                modalString += "</div>";
-                modalString += "</div>";
-                // modalString += "</div>";
-                $('.modal-content').empty();
-                $('.modal-content').append(video);
-                $('#exampleModalCenter').modal("show");
-                $('.placeHolderDiv').append(modalString);
-            }
 
-                //
-                // 
-                // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-                // modalString += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-                // modalString += "<span aria-hidden='true'>&times;</span>";
-                // modalString += "</button>";
-                // modalString += "</div>";
-                // modalString += "<div class='modal-body'>";
-                // modalString += "...";
-                // modalString += "</div>";
-                // modalString += "<div class='modal-footer'>";
-                // modalString += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
-                // modalString += "<button type='button' class='btn btn-primary'>Save changes</button>";
-                
+        var link;
+        var video;
+
+        $.ajax(settings).done(function (response) {
+            console.log("API trailerTest");
+            console.log(response);
+            link = "https://www.youtube.com/embed/" + response.results[0].key + "?autoplay=1";
+
+            $(".Trailer").attr('src', link);
+        });
+
+        /////// -----------> END AJAX REQUEST <------------/////////////////////
+
+        video = $('<iframe />', {
+            class: 'Trailer row',
+            src: link,
+        });
+
+
+
+        // var div = $("<div>");
+        // var id = "";
+        // div.addClass('modal-body Trailer');
+        // div.append(video);
+        modalString = "";
+        modalString += "<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>";
+        modalString += "<div class='modal-dialog modal-dialog-centered' role='document'>";
+        // modalString += "<div class='modal-header'>";
+        modalString += "<div class='modal-content'>";
+        modalString += "</div>";
+        modalString += "</div>";
+        modalString += "</div>";
+        // modalString += "</div>";
+        $('.modal-content').empty();
+        $('.modal-content').append(video);
+        $('#exampleModalCenter').modal("show");
+        $('.placeHolderDiv').append(modalString);
+    }
+
+    //
+    // 
+    // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
+    // modalString += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+    // modalString += "<span aria-hidden='true'>&times;</span>";
+    // modalString += "</button>";
+    // modalString += "</div>";
+    // modalString += "<div class='modal-body'>";
+    // modalString += "...";
+    // modalString += "</div>";
+    // modalString += "<div class='modal-footer'>";
+    // modalString += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
+    // modalString += "<button type='button' class='btn btn-primary'>Save changes</button>";
+
 });
