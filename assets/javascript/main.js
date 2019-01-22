@@ -160,21 +160,21 @@ $(document).ready(function () {
         slideTags += '<div class="carousel-inner">';
 
         slideTags += '<div class="carousel-item active">';
-        slideTags += '<img width="1200px" "height=600px" src="../assets/image/1.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<img width="1200px" "height=600px" src="./assets//image/1.jpg" class="d-block w-100" alt="...">';
         slideTags += '<div class="carousel-caption d-none d-md-block">';
         slideTags += '<h5 class="SlideShowText">Justice League</h5>';
         slideTags += '<div class="SlideShowText">ustice League is a 2017 American superhero film based on the DC Comics superhero</div>';
         slideTags += '</div>';
         slideTags += '</div>';
         slideTags += '<div class="carousel-item">';
-        slideTags += '<img width="1200px" "height=600px" src="../assets/image/2.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<img width="1200px" "height=600px" src="./assets//image/2.jpg" class="d-block w-100" alt="...">';
         slideTags += '<div class="carousel-caption d-none d-md-block">';
         slideTags += '<h5 class="SlideShowText">FNAF Movie</h5>';
         slideTags += '<div class="SlideShowText" >Five Nights at Freddy (often abbreviated to FNaF) is a media franchise based around an indie video game series created, designed, developed, and published by Scott Cawthon for Microsoft Windows</div>';
         slideTags += '</div>';
         slideTags += '</div>';
         slideTags += '<div class="carousel-item">';
-        slideTags += '<img width="1200px" "height=600px" src="../assets/image/3.jpg" class="d-block w-100" alt="...">';
+        slideTags += '<img width="1200px" "height=600px" src="./assets/image/3.jpg" class="d-block w-100" alt="...">';
         slideTags += '<div class="carousel-caption d-none d-md-block">';
         slideTags += '<h5 class="SlideShowText">The Expendables 4</h5>';
         slideTags += '<div class="SlideShowText">The Expendables is an American series of ensemble action films written by and starring Sylvester Stallone and originally created by David Callaham.</div>';
