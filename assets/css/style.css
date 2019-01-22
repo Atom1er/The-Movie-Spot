@@ -12,6 +12,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: rgb(199, 54, 54);
+}
+
+.h1click {
+    font-weight: bolder;
+    font-family: monospace;
 }
 
 span {
@@ -184,4 +190,10 @@ span {
 .modal-content{
     width: 600px;
     height: 400px;
+}
+
+.SlideShowText{
+    background-color: rgba(0, 0, 0, 0.644);
+    color: ghostwhite;
+    
 }
