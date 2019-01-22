@@ -164,15 +164,23 @@ span {
     text-align: justify;
 }
 
-.Trailer {
-    height: 250px;
-    width: 750px;
-    float: right;
-    position: relative;
-    right: 3%;
-    top: 5%;
+.Trailer{
+    width: 600px;
+    height: 400px;
+    
 }
 
 .form-inline {
     padding-bottom: 20px;
+}
+
+.modal-content{
+    width: 600px;
+    height: 400px;
+}
+
+.SlideShowText{
+    background-color: rgba(0, 0, 0, 0.644);
+    color: ghostwhite;
+    
 }
