@@ -352,14 +352,18 @@ $(document).ready(function () {
         $('.modal-content').append(video);
         $('#exampleModalCenter').modal("show");
         $('.placeHolderDiv').append(modalString);
+
+        $('#exampleModalCenter').on('hidden.bs.modal', function (event) {
+            $(this).remove();
+            console.log('why????');
+        });
     }
 
-    //
-    // 
+    
     // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-    // modalString += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-    // modalString += "<span aria-hidden='true'>&times;</span>";
-    // modalString += "</button>";
+    
+    
+    
     // modalString += "</div>";
     // modalString += "<div class='modal-body'>";
     // modalString += "...";
