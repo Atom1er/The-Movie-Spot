@@ -1,10 +1,30 @@
-body{
+/* body{
     font-family: monospace;
     color: rgb(182, 182, 182);
     background-image:url(../image/body.jpg);
-}
+} */
 
 /* this is the "Click to enter!!" */
+/* will */
+.logo{
+    width: 100px;
+    margin-left: 12%;
+    margin-top: 10px;
+    float: left;
+    margin-top: 10px;
+    color: rgb(145, 53, 0);
+}
+/* will */
+.headTitle{ 
+    text-align: right;
+    color: rgb(145, 53, 0);
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 12%;
+    
+}
+
 .overlay {
     background: rgba(0,0,0,0);
     position: absolute;
@@ -46,22 +66,44 @@ span {
     text-align: center;
 }
 
-.btn{
-    background-color: white;
-}
+
 
 .form{
     margin: 10px;
 }
-/* style for keyword buttons */
+/* style for keyword buttons //will */
 .NewButton{
     text-transform: capitalize;
+    width: fit-content;
+    padding-right: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 1%;
+    border-right: solid white 1px;
+    border-radius: 0px;
+    /* background-color: rgb(255, 255, 255); */
+    /* border: solid rgb(0, 189, 16) 1px; */
+    /* border-radius: 3px; */
+    color: white; 
+}
+.AddKeyWord{
+    background-color: white;
+    color:rgb(199, 54, 54); 
+    border-radius: 0px;
+    border: solid rgb(145, 53, 0) 1px;
 }
 
+.AddKeyWord:hover{
+    background-color: rgb(145, 53, 0);
+    color:white; 
+    border: 0px;
+
+}
 #error1 , #error2{
     color: rgb(199, 54, 54);
 }
-
+ 
+/* will */
 .placeHolderDiv{
     display: flex;
     width: 100%;
@@ -70,16 +112,51 @@ span {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: relative;
-    margin-top: 10px;
+    margin-top: 0px;
     height: 80%;
+    border-radius: 0px;
+    border: solid rgb(145, 53, 0) 1px;
 }
+
+.KeyAdd{
+    clear: both;
+    border: solid  rgb(145, 53, 0) 1px ;
+    border-radius:0px;
+}
+
+/* will */
+.mainSubmitBtn:hover {
+    background-color: rgb(145, 53, 0);
+    color: white;
+    border-radius: 0px;
+    border: solid rgb(145, 53, 0) 1px;
+     
+}
+
+/* will */
+.mainSubmitBtn{
+    background-color: white;
+    color: rgb(145, 53, 0);
+    border-radius: 0px;
+    border: solid rgb(145, 53, 0) 1px;
+}
+/* will */
+.mainInput{
+    border-radius: 0px;
+    border: solid rgb(145, 53, 0) 1px;
+}
+ .welcomSection{
+     border-radius: 0px;
+     border: solid rgb(145, 53, 0) 1px;
+     width: 60%;
+     margin: 0 auto;
+    
+ }
 
 /* style for area with the key words buttons */
 .buttonsDivs{
-    border-radius: 5px;
+    background-color: rgb(145, 53, 0) ;
     height: fit-content;
-    padding-top: 5px;
-    padding-bottom: 5px;
     /* background-image: linear-gradient(to right, rgb(104, 179, 202) , rgb(0, 68, 156)); */
     
 }
@@ -91,25 +168,32 @@ span {
     width: 100%;
 }
 
-.titleBtn{
+/* will */
+.BtnTrailer, .titleBtn{
     padding: 5px;
     width: 100%;
     margin-top: 6px;
     background-color: rgb(255, 255, 255);
-    border: solid rgb(0, 189, 16) 1px;
-    border-radius: 3px;
-    color: rgb(0, 189, 16);
+    border: solid rgb(145, 53, 0) 1px;
+    color: rgb(145, 53, 0);
 }
 
+/* will */
 .NewButton:hover{
     color: white;
-    background-color: rgb(0, 189, 16);
+    text-decoration: underline ;
 }
 
-.titleBtn:hover{
+.BtnTrailer:hover, .titleBtn:hover{
     cursor: pointer;
     color: white;
-    background-color: rgb(0, 189, 16);
+    background-color: rgb(145, 53, 0);
+}
+
+
+.btn-outline-success:hover{
+    background-color: rgb(145, 53, 0);
+    color: white;
 }
 
 .spanName{
@@ -140,9 +224,9 @@ span {
     font-family: fantasy;
 }
 .moreDetailsImg{
-    width: 275px;
-    height: 100%;
-    border: white solid 3px;
+    max-width: 250px;
+    max-height: auto;
+    margin: 0 auto;
     display: inline-block;
     float: right;
 }
@@ -171,7 +255,8 @@ span {
 }
 
 .form-inline {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    margin-top: -40px;
 }
 
 .modal-content{
@@ -183,4 +268,13 @@ span {
     background-color: rgba(0, 0, 0, 0.644);
     color: ghostwhite;
     
+}
+
+footer{
+    color: gray;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }

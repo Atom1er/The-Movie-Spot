@@ -40,11 +40,10 @@ $(document).ready(function () {
             error2.css('display', 'none');
             var Newkey = NewCategory.val();
             name = UserName.val().trim();
-            localStorage.setItem('myName', name);
-            localStorage.setItem('Key_word', Newkey);
 
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
+                localStorage.setItem('myName', name);
                 placeholder();
                 SlideShow();
                 buttonsHere(list);
@@ -202,7 +201,7 @@ $(document).ready(function () {
         var pHolder2 = $("<div>");
         pHolder2.addClass('col-12 buttonsDivs');
         pHolder2.attr('id', 'buttonSection');
-        $(".container").append(pHolder2);
+        $(".container").prepend(pHolder2);
     }
 
     function buttonsHere(list) {

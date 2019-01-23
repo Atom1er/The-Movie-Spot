@@ -2,24 +2,32 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script defer src="./assets/javascript/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="video" >
         <video autoplay muted loop id="myVideo">
-        <source src="assets/image/firstpage.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
+            <source src="./assets/image/firstpage.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
         </video>
-    <div class="overlay">
-        <h1 class="h1click">Click To Enter!</h1>
+        <div class="overlay">
+            <h1>Click to enter!!</h1>
+        </div>
     </div>
-    </div>
+        <div class="">
+                
+                <h1 class="headTitle"><img src="./assets/image/logo.png" alt="image" class="logo">My Movies Spot</h1>
+            </div>
+            <hr>
 
     <div class="container-fluid MainContent" style="display:none">
         <div class="container">
@@ -29,20 +37,24 @@
                     attention to featured content or information.</p>
                 <hr class="my-4">
                 <div class="form">
-                    <input class="form-control firstCap" id="UserName" type="text" placeholder="Name">
+                    <input class="form-control firstCap mainInput" id="UserName" type="text" placeholder="Name">
                 </div>
                 <div id="error1" style="display:none"></div>
                 <div class="form">
-                    <input class="form-control firstCap" id="NewCategory" type="text" placeholder="Search Movie">
+                    <input class="form-control firstCap mainInput" id="NewCategory" type="text" placeholder="Search Movie">
                 </div>
                 <div id="error2" style="display:none"></div>
-                <button class="btn btn-outline-success my-4 my-sm-0" href="#" role="button" id="submit">Submit</button>
+                <button class="btn btn-outline-success my-4 my-sm-0 mainSubmitBtn" href="#" role="button" id="submit">Submit</button>
             </div>
             <div class="row" id="mainContent"></div>
             <div class="row" id="categories"></div>
         </div>
-        
+
     </div>
+    <hr>
+    <footer>
+        Developed by Thomas, Ryuichi, William   2019 all rights reserved.
+    </footer>
 </body>
 
 </html>
