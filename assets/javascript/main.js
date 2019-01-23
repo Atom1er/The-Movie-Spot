@@ -11,12 +11,11 @@ $(document).ready(function () {
     var error2 = $("#error2");
     var name;
     var test;
-    var list = JSON.parse(localStorage.getItem("Key_word"));
-    // var list = localStorage.getItem("Key_word");
+    var counter = 1;
+    
+    var searchKey = [];
+    var NewWordTest;
 
-    if (!Array.isArray(list)) {
-        list = [];
-      }
 
     // a timer is set if user does not click that next(Ry)
     setInterval(function () {
@@ -70,7 +69,7 @@ $(document).ready(function () {
     } else if (localStorage.getItem('myName') != null) {
         placeholder();
         SlideShow();
-        buttonsHere(list);
+        KeyMemory();
         newKeyword();
         // AddKey();
         MoreDetail();
@@ -269,6 +268,43 @@ $(document).ready(function () {
         $(".container").prepend(span, keyWord);
     }
 
+    function AddKey() {
+        $(document).on('click', '.AddKeyWord', function (event) {
+            event.preventDefault();
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var NewWord = $(".KeyAdd").val().trim();
+
+            if (NewWord !== NewWordTest && NewWord !== "") {
+                searchKey.push(NewWord);
+                localStorage.setItem("Key_word", JSON.stringify(searchKey));
+                console.log('array', searchKey);
+                console.log(localStorage.getItem("Key_word"));
+                buttonsHere(NewWord);
+                NewWordTest = NewWord;
+                counter++;
+            }
+        });
+    }
+
+    function KeyMemory(){
+        // var savedKey = [];
+        // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
+        var savedKey = JSON.parse(localStorage.getItem("Key_word"));
+        console.log(savedKey);
+        if(savedKey == 'null'){
+            savedKey = ['Avengers', 'It'];
+            buttonsHere(savedKey);
+        }else if(savedKey !== 'null'){
+        console.log(savedKey);
+        console.log(savedKey.length);
+        for(var i=0; i < savedKey.length; i++){
+            
+            buttonsHere(savedKey[i]);
+        }
+        }
+       
+    }
+
     function MoreDetail() {
         $(document).on('click', '.titleBtn', function (event) {
             event.preventDefault();
@@ -370,14 +406,18 @@ $(document).ready(function () {
         $('.modal-content').append(video);
         $('#exampleModalCenter').modal("show");
         $('.placeHolderDiv').append(modalString);
+
+        $('#exampleModalCenter').on('hidden.bs.modal', function (event) {
+            $(this).remove();
+            console.log('why????');
+        });
     }
 
-    //
-    // 
+    
     // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-    // modalString += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-    // modalString += "<span aria-hidden='true'>&times;</span>";
-    // modalString += "</button>";
+    
+    
+    
     // modalString += "</div>";
     // modalString += "<div class='modal-body'>";
     // modalString += "...";
