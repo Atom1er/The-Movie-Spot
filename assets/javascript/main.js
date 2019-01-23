@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+
+    // hide navbar in first screen ....Will....
+    hideNavBar();
+
     ////////////---Setting global variables /////
     var header = $("#header");
     var submit = $("#submit");
@@ -12,7 +16,7 @@ $(document).ready(function () {
     var name;
     var test;
     var counter = 1;
-    
+
     var searchKey = [];
     var NewWordTest;
 
@@ -22,18 +26,21 @@ $(document).ready(function () {
         $("#video").fadeOut(2000);
         $(".h1click").text("ENJOY");
         $(".container-fluid").show();
+        navBarShow();
     }, 12000);
     // if user clicks video will fade and text will turn to ENJOY than next (Ry)
     $("#video").on("click", function () {
         $("#video").fadeOut(2000);
         $(".h1click").text("Enjoy!");
         $(".container-fluid").show();
+        navBarShow();
     });
 
 
     $("#video").on("click", function () {
         $("#video").hide();
         $(".container-fluid").show();
+        navBarShow();
     });
 
     if (localStorage.getItem('myName') == null) {
@@ -139,7 +146,7 @@ $(document).ready(function () {
             img.attr('src', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
             titleBtn.text(resp.results[i].title);
 
-            /// ---> Saving every single movie infos into his Button --- ///
+            /// ---> Saving every single movie info into its Button --- ///
             titleBtn.data('data-trailer', 'https://api.themoviedb.org/3/movie/' + resp.results[i].id + '/videos?api_key=' + apik);
             titleBtn.data('data-title', resp.results[i].title);
             titleBtn.data('data-poster', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
@@ -256,23 +263,22 @@ $(document).ready(function () {
         });
     }
 
-    function KeyMemory(){
+    function KeyMemory() {
         // var savedKey = [];
         // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
         var savedKey = JSON.parse(localStorage.getItem("Key_word"));
         console.log(savedKey);
-        if(savedKey == 'null'){
+        if (savedKey == 'null') {
             savedKey = ['Avengers', 'It'];
             buttonsHere(savedKey);
-        }else if(savedKey !== 'null'){
-        console.log(savedKey);
-        console.log(savedKey.length);
-        for(var i=0; i < savedKey.length; i++){
-            
-            buttonsHere(savedKey[i]);
+        } else if (savedKey !== 'null') {
+            console.log(savedKey);
+            console.log(savedKey.length);
+            for (var i = 0; i < savedKey.length; i++) {
+                buttonsHere(savedKey[i]);
+            }
         }
-        }
-       
+
     }
 
     function MoreDetail() {
@@ -316,11 +322,6 @@ $(document).ready(function () {
 
 
         });
-
-
-
-
-
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -340,6 +341,7 @@ $(document).ready(function () {
 
 
         var link;
+
         var video;
 
         $.ajax(settings).done(function (response) {
@@ -350,7 +352,7 @@ $(document).ready(function () {
             $(".Trailer").attr('src', link);
         });
 
-        /////// -----------> END AJAX REQUEST <------------/////////////////////
+        ///////////////// -----------> END AJAX REQUEST <------------/////////////////////
 
         video = $('<iframe />', {
             class: 'Trailer row',
@@ -383,11 +385,8 @@ $(document).ready(function () {
         });
     }
 
-    
+
     // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-    
-    
-    
     // modalString += "</div>";
     // modalString += "<div class='modal-body'>";
     // modalString += "...";
@@ -396,4 +395,17 @@ $(document).ready(function () {
     // modalString += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
     // modalString += "<button type='button' class='btn btn-primary'>Save changes</button>";
 
+
+    //  function to hide and show navbar and footer after welcome video // Will //  
+    function hideNavBar() {
+        $("#navBarDiv").hide();
+        $("#footerDiv").hide();
+
+    }
+    function navBarShow() {
+        $("#navBarDiv").show();
+        $("#footerDiv").show();
+    }
+    //-----------------------------0-------------------------------------//
 });
+

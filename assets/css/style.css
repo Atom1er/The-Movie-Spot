@@ -22,6 +22,8 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     margin-right: 12%;
+    margin-top: 10px;
+    margin-bottom: 5px;
     
 }
 
@@ -146,11 +148,17 @@ span {
     border: solid rgb(145, 53, 0) 1px;
 }
  .welcomSection{
+     color: rgb(145, 53, 0);
      border-radius: 0px;
      border: solid rgb(145, 53, 0) 1px;
      width: 60%;
      margin: 0 auto;
     
+ }
+
+ .lead, .display-4{
+    color: rgb(145, 53, 0);
+
  }
 
 /* style for area with the key words buttons */
