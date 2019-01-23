@@ -11,6 +11,7 @@
     margin-left: 12%;
     float: left;
     margin-top: 10px;
+    color: rgb(145, 53, 0);
 }
 /* will */
 .headTitle{ 
@@ -256,8 +257,8 @@ span {
 }
 
 .form-inline {
-    padding-bottom: 20px;
-    margin-top: -30px;
+    padding-bottom: 10px;
+    margin-top: -40px;
 }
 
 .modal-content{
