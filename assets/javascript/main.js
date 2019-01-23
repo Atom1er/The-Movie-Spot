@@ -207,13 +207,13 @@ $(document).ready(function () {
     function buttonsHere(list) {
         $("#buttonSection").empty();
         for (var i = 0; i < list.length; i++) {
-            var button = $("<button>")
+            var button = $("<button>");
             button.attr("data-Key_word", i);
             button.attr("class", "NewButton btn btn-lg");
             button.text(list[i]);
             $("#buttonSection").append(button);
-        };
-    };
+        }
+    }
     
     $(document).on("click", ".AddKeyWord", function(event) {
         event.preventDefault();
