@@ -12,8 +12,10 @@ $(document).ready(function () {
     var name;
     var test;
     var counter = 1;
+    
     var searchKey = [];
     var NewWordTest;
+
 
     // a timer is set if user does not click that next(Ry)
     setInterval(function () {
@@ -73,7 +75,7 @@ $(document).ready(function () {
     } else if (localStorage.getItem('myName') != null) {
         placeholder();
         SlideShow();
-        buttonsHere("it");
+        KeyMemory();
         newKeyword();
         AddKey();
         MoreDetail();
@@ -239,16 +241,38 @@ $(document).ready(function () {
     function AddKey() {
         $(document).on('click', '.AddKeyWord', function (event) {
             event.preventDefault();
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             var NewWord = $(".KeyAdd").val().trim();
 
             if (NewWord !== NewWordTest && NewWord !== "") {
                 searchKey.push(NewWord);
-                JSON.stringify(localStorage.setItem("Key_word", searchKey));
+                localStorage.setItem("Key_word", JSON.stringify(searchKey));
+                console.log('array', searchKey);
                 console.log(localStorage.getItem("Key_word"));
                 buttonsHere(NewWord);
                 NewWordTest = NewWord;
+                counter++;
             }
         });
+    }
+
+    function KeyMemory(){
+        // var savedKey = [];
+        // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
+        var savedKey = JSON.parse(localStorage.getItem("Key_word"));
+        console.log(savedKey);
+        if(savedKey == 'null'){
+            savedKey = ['Avengers', 'It'];
+            buttonsHere(savedKey);
+        }else if(savedKey !== 'null'){
+        console.log(savedKey);
+        console.log(savedKey.length);
+        for(var i=0; i < savedKey.length; i++){
+            
+            buttonsHere(savedKey[i]);
+        }
+        }
+       
     }
 
     function MoreDetail() {
