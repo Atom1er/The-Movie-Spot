@@ -12,7 +12,8 @@ $(document).ready(function () {
     var name;
     var test;
     var counter = 1;
-    
+    var savedKey;
+
     var searchKey = [];
     var NewWordTest;
 
@@ -45,7 +46,7 @@ $(document).ready(function () {
             error2.css('display', 'none');
             var Newkey = NewCategory.val().trim();
             name = UserName.val().trim();
-
+            searchKey.push(Newkey);
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
                 localStorage.setItem('myName', name);
@@ -256,23 +257,21 @@ $(document).ready(function () {
         });
     }
 
-    function KeyMemory(){
+    function KeyMemory() {
         // var savedKey = [];
         // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
-        var savedKey = JSON.parse(localStorage.getItem("Key_word"));
+        savedKey = JSON.parse(localStorage.getItem("Key_word"));
         console.log(savedKey);
-        if(savedKey == 'null'){
-            savedKey = ['Avengers', 'It'];
-            buttonsHere(savedKey);
-        }else if(savedKey !== 'null'){
-        console.log(savedKey);
-        console.log(savedKey.length);
-        for(var i=0; i < savedKey.length; i++){
-            
-            buttonsHere(savedKey[i]);
+        if (savedKey !== null) {
+            console.log(savedKey);
+            console.log(savedKey.length);
+            buttonsHere(localStorage.getItem("Key_word1"));
+
+            for (var i = 0; i < savedKey.length; i++) {
+                buttonsHere(savedKey[i]);
+            }
         }
-        }
-       
+
     }
 
     function MoreDetail() {
