@@ -52,7 +52,7 @@ $(document).ready(function () {
             error2.css('display', 'none');
             var Newkey = NewCategory.val().trim();
             name = UserName.val().trim();
-
+            searchKey.push(Newkey);
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
                 localStorage.setItem('myName', name);
@@ -233,11 +233,15 @@ $(document).ready(function () {
         var keyWord = $("<form>");
         keyWord.addClass('form-inline');
         var userInput = $("<input>");
+        var homeBtn = $("<button>");
+        homeBtn.text('Home');
+        homeBtn.addClass('btn AddKeyWord');
+        homeBtn.attr('id', 'homeBtn');
         userInput.addClass('form-control mr-sm-2 KeyAdd');
         var button2 = $("<button>");
         button2.text('Search Movie');
         button2.addClass('btn btn-outline-success my-2 my-sm-0 AddKeyWord');
-        keyWord.append(userInput, button2);
+        keyWord.append(userInput, button2, homeBtn);
         var userFromStorage = localStorage.getItem("myName");
         var span = $("<span>");
         span.addClass('spanName');
@@ -407,5 +411,13 @@ $(document).ready(function () {
         $("#footerDiv").show();
     }
     //-----------------------------0-------------------------------------//
+
+    // function to go 'home'// Will
+    $(document).on('click', '#homeBtn', home);
+
+    function home(){
+        localStorage.removeItem('myName', 'Key_word');
+        window.location.reload();
+    }
 });
 
