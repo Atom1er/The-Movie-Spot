@@ -31,12 +31,6 @@ $(document).ready(function () {
         $(".container-fluid").show();
     });
 
-
-    $("#video").on("click", function () {
-        $("#video").hide();
-        $(".container-fluid").show();
-    });
-
     if (localStorage.getItem('myName') == null) {
         //////// --------- Home page
         submit.on("click", function (event) {
@@ -44,7 +38,7 @@ $(document).ready(function () {
             //--- Checking for valid Entry from User ---///
             error1.css('display', 'none');
             error2.css('display', 'none');
-            var Newkey = NewCategory.val().trim();
+            var Newkey = NewCategory.val();
             name = UserName.val().trim();
             searchKey.push(Newkey);
             /// ---> If User Entry are valid then Start Program --- ////
@@ -52,9 +46,9 @@ $(document).ready(function () {
                 localStorage.setItem('myName', name);
                 placeholder();
                 SlideShow();
-                buttonsHere(Newkey);
+                buttonsHere();
                 newKeyword();
-                AddKey();
+                // AddKey();
                 MoreDetail();
                 $(document).on("click", ".NewButton", search);
 
@@ -78,7 +72,7 @@ $(document).ready(function () {
         SlideShow();
         KeyMemory();
         newKeyword();
-        AddKey();
+        // AddKey();
         MoreDetail();
         $(document).on("click", ".NewButton", search);
     }
@@ -210,20 +204,56 @@ $(document).ready(function () {
         $(".container").prepend(pHolder2);
     }
 
-    // creates buttons for the movies
-    function buttonsHere(value) {
-        var Newkey = NewCategory.val().trim();
-        var newCat = $("<button>");
-        newCat.val(value);
-        newCat.attr('class', 'NewButton btn btn-lg');
-
-        // console.log(name, Newkey);
-        newCat.append(value);
-        $("#buttonSection").append(newCat);
+    function buttonsHere(list) {
+        $("#buttonSection").empty();
+        for (var i = 0; i < list.length; i++) {
+            var button = $("<button>");
+            button.attr("data-Key_word", i);
+            button.attr("class", "NewButton btn btn-lg");
+            button.text(list[i]);
+            $("#buttonSection").append(button);
+        }
     }
+    
+    $(document).on("click", ".AddKeyWord", function(event) {
+        event.preventDefault();
+        
+        var inputValue = $(".KeyAdd").val();
+        list.push(inputValue);
+        buttonsHere(list);
+        localStorage.setItem("Key_word", JSON.stringify(list));
+        $(".KeyAdd").val("");
+    });
+
+    // creates buttons for the movies
+    // function buttonsHere(value) {
+    //     // var Newkey = NewCategory.val().trim();
+    //     var newCat = $("<button>");
+    //     newCat.val(value);
+    //     newCat.attr('class', 'NewButton btn btn-lg');
+
+    //     // console.log(name, Newkey);
+    //     newCat.append(value);
+    //     $("#buttonSection").append(newCat);
+    // }
+
+    // function AddKey() {
+    //     $(document).on('click', '.AddKeyWord', function (event) {
+    //         event.preventDefault();
+    //         var NewWord = $(".KeyAdd").val().trim();
+
+    //         if (NewWord !== NewWordTest && NewWord !== "") {
+    //             searchKey.push(NewWord);
+    //             localStorage.setItem("Key_word", JSON.stringify(searchKey));
+    //             // console.log(localStorage.getItem("Key_word"));
+    //             buttonsHere(NewWord);
+    //             NewWordTest = NewWord;
+    //         }
+    //         // $(".KeyAdd").val("");
+    //     });
+    // }
 
     function newKeyword() {
-
         var keyWord = $("<form>");
         keyWord.addClass('form-inline');
         var userInput = $("<input>");
