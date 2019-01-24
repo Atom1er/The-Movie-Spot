@@ -46,7 +46,7 @@ $(document).ready(function () {
                 localStorage.setItem('myName', name);
                 placeholder();
                 SlideShow();
-                buttonsHere(list);
+                buttonsHere();
                 newKeyword();
                 // AddKey();
                 MoreDetail();
