@@ -416,7 +416,8 @@ $(document).ready(function () {
     $(document).on('click', '#homeBtn', home);
 
     function home(){
-        localStorage.removeItem('myName', 'Key_word');
+        localStorage.removeItem('myName');
+        localStorage.removeItem('Key_word');
         window.location.reload();
     }
 });
