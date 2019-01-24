@@ -17,11 +17,13 @@
 /* will */
 .headTitle{ 
     text-align: right;
-    color: rgb(145, 53, 0);
+    color: #587e76;
     font-size: 40px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-right: 12%;
+    margin-top: 10px;
+    margin-bottom: 5px;
     
 }
 
@@ -58,10 +60,6 @@ span {
 
 #userInputJ{
     margin-top: 20px;
-    background-image: url("../image/background-Ry.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: multiply;
     color: white;
     text-align: center;
 }
@@ -75,7 +73,6 @@ span {
 .NewButton{
     text-transform: capitalize;
     width: fit-content;
-    padding-right: 12px;
     padding-top: 2px;
     padding-bottom: 2px;
     margin: 1%;
@@ -86,14 +83,18 @@ span {
     /* border-radius: 3px; */
     color: white; 
 }
-.AddKeyWord{
+.AddKeyWord, #homeBtn{
     background-color: white;
     color:rgb(199, 54, 54); 
     border-radius: 0px;
     border: solid rgb(145, 53, 0) 1px;
 }
 
-.AddKeyWord:hover{
+#homeBtn{
+    margin-left: 4px;
+}
+
+.AddKeyWord:hover, #homeBtn:hover {
     background-color: rgb(145, 53, 0);
     color:white; 
     border: 0px;
@@ -116,6 +117,7 @@ span {
     height: 80%;
     border-radius: 0px;
     border: solid rgb(145, 53, 0) 1px;
+    border-top: solid #587e76 8px;
 }
 
 .KeyAdd{
@@ -146,11 +148,17 @@ span {
     border: solid rgb(145, 53, 0) 1px;
 }
  .welcomSection{
+     color: rgb(145, 53, 0);
      border-radius: 0px;
      border: solid rgb(145, 53, 0) 1px;
      width: 60%;
      margin: 0 auto;
     
+ }
+
+ .lead, .display-4{
+    color: rgb(145, 53, 0);
+
  }
 
 /* style for area with the key words buttons */

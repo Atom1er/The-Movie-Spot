@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    hideNavBar();
+
     ////////////---Setting global variables /////
     var header = $("#header");
     var submit = $("#submit");
@@ -20,21 +22,25 @@ $(document).ready(function () {
 
     // a timer is set if user does not click that next(Ry)
     setInterval(function () {
+
         $("#video").fadeOut(2000);
         $(".h1click").text("ENJOY");
         $(".container-fluid").show();
+        navBarShow();
     }, 12000);
     // if user clicks video will fade and text will turn to ENJOY than next (Ry)
     $("#video").on("click", function () {
         $("#video").fadeOut(2000);
         $(".h1click").text("Enjoy!");
         $(".container-fluid").show();
+        navBarShow();
     });
 
 
     $("#video").on("click", function () {
         $("#video").hide();
         $(".container-fluid").show();
+        navBarShow();
     });
 
     if (localStorage.getItem('myName') == null) {
@@ -47,9 +53,12 @@ $(document).ready(function () {
             var Newkey = NewCategory.val().trim();
             name = UserName.val().trim();
             searchKey.push(Newkey);
+            
+            /// ---> If User Entry are 
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
                 localStorage.setItem('myName', name);
+                localStorage.getItem("Key_word", Newkey);
                 placeholder();
                 SlideShow();
                 buttonsHere(Newkey);
@@ -227,11 +236,15 @@ $(document).ready(function () {
         var keyWord = $("<form>");
         keyWord.addClass('form-inline');
         var userInput = $("<input>");
+        var homeBtn = $("<button>");
+        homeBtn.text('Home');
+        homeBtn.addClass('btn AddKeyWord');
+        homeBtn.attr('id', 'homeBtn');
         userInput.addClass('form-control mr-sm-2 KeyAdd');
         var button2 = $("<button>");
         button2.text('Search Movie');
         button2.addClass('btn btn-outline-success my-2 my-sm-0 AddKeyWord');
-        keyWord.append(userInput, button2);
+        keyWord.append(userInput, button2, homeBtn);
         var userFromStorage = localStorage.getItem("myName");
         var span = $("<span>");
         span.addClass('spanName');
@@ -262,11 +275,11 @@ $(document).ready(function () {
         // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
         savedKey = JSON.parse(localStorage.getItem("Key_word"));
         console.log(savedKey);
-        if (savedKey !== null) {
+        if ( localStorage.getItem("Key_word") !== null) {
+            buttonsHere(savedKey);
+        } else if (savedKey !== 'null') {
             console.log(savedKey);
             console.log(savedKey.length);
-            buttonsHere(localStorage.getItem("Key_word1"));
-
             for (var i = 0; i < savedKey.length; i++) {
                 buttonsHere(savedKey[i]);
             }
@@ -315,11 +328,6 @@ $(document).ready(function () {
 
 
         });
-
-
-
-
-
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -375,20 +383,25 @@ $(document).ready(function () {
         $('.modal-content').append(video);
         $('#exampleModalCenter').modal("show");
         $('.placeHolderDiv').append(modalString);
+         $('#exampleModalCenter').on('hidden.bs.modal', function (event) {
+            $(this).remove();
+            console.log('why????');
+        });
     }
+//  function to hide and show navbar and footer after welcome video // Will //  
+    function hideNavBar() {
+        $("#navBarDiv").hide();
+        $("#footerDiv").hide();
 
-    //
-    // 
-    // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-    // modalString += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-    // modalString += "<span aria-hidden='true'>&times;</span>";
-    // modalString += "</button>";
-    // modalString += "</div>";
-    // modalString += "<div class='modal-body'>";
-    // modalString += "...";
-    // modalString += "</div>";
-    // modalString += "<div class='modal-footer'>";
-    // modalString += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
-    // modalString += "<button type='button' class='btn btn-primary'>Save changes</button>";
+    }
+    function navBarShow() {
+        $("#navBarDiv").show();
+        $("#footerDiv").show();
+    }
+    $(document).on('click', '#homeBtn', home);
 
+    function home(){
+        localStorage.removeItem('myName');
+        localStorage.removeItem('Key_word');
+        window.location.reload();   
 });
