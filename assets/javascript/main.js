@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-    // hide navbar in first screen ....Will....
     hideNavBar();
 
     ////////////---Setting global variables /////
@@ -16,6 +14,7 @@ $(document).ready(function () {
     var name;
     var test;
     var counter = 1;
+    var savedKey;
 
     var searchKey = [];
     var NewWordTest;
@@ -23,6 +22,7 @@ $(document).ready(function () {
 
     // a timer is set if user does not click that next(Ry)
     setInterval(function () {
+
         $("#video").fadeOut(2000);
         $(".h1click").text("ENJOY");
         $(".container-fluid").show();
@@ -53,9 +53,12 @@ $(document).ready(function () {
             var Newkey = NewCategory.val().trim();
             name = UserName.val().trim();
             searchKey.push(Newkey);
+            
+            /// ---> If User Entry are 
             /// ---> If User Entry are valid then Start Program --- ////
             if (Newkey !== "" && Newkey !== test && name !== "") {
                 localStorage.setItem('myName', name);
+                localStorage.getItem("Key_word", Newkey);
                 placeholder();
                 SlideShow();
                 buttonsHere(Newkey);
@@ -146,7 +149,7 @@ $(document).ready(function () {
             img.attr('src', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
             titleBtn.text(resp.results[i].title);
 
-            /// ---> Saving every single movie info into its Button --- ///
+            /// ---> Saving every single movie infos into his Button --- ///
             titleBtn.data('data-trailer', 'https://api.themoviedb.org/3/movie/' + resp.results[i].id + '/videos?api_key=' + apik);
             titleBtn.data('data-title', resp.results[i].title);
             titleBtn.data('data-poster', "https://image.tmdb.org/t/p/w185//" + resp.results[i].poster_path);
@@ -270,10 +273,9 @@ $(document).ready(function () {
     function KeyMemory() {
         // var savedKey = [];
         // var arr = JSON.parse( localStorage.getItem('memoriesdata') );
-        var savedKey = JSON.parse(localStorage.getItem("Key_word"));
+        savedKey = JSON.parse(localStorage.getItem("Key_word"));
         console.log(savedKey);
-        if (savedKey == 'null') {
-            savedKey = ['Avengers', 'It'];
+        if ( localStorage.getItem("Key_word") !== null) {
             buttonsHere(savedKey);
         } else if (savedKey !== 'null') {
             console.log(savedKey);
@@ -345,7 +347,6 @@ $(document).ready(function () {
 
 
         var link;
-
         var video;
 
         $.ajax(settings).done(function (response) {
@@ -356,7 +357,7 @@ $(document).ready(function () {
             $(".Trailer").attr('src', link);
         });
 
-        ///////////////// -----------> END AJAX REQUEST <------------/////////////////////
+        /////// -----------> END AJAX REQUEST <------------/////////////////////
 
         video = $('<iframe />', {
             class: 'Trailer row',
@@ -382,25 +383,12 @@ $(document).ready(function () {
         $('.modal-content').append(video);
         $('#exampleModalCenter').modal("show");
         $('.placeHolderDiv').append(modalString);
-
-        $('#exampleModalCenter').on('hidden.bs.modal', function (event) {
+         $('#exampleModalCenter').on('hidden.bs.modal', function (event) {
             $(this).remove();
             console.log('why????');
         });
     }
-
-
-    // modalString += "<h5 class='modal-title' id='exampleModalCenterTitle'>Modal title</h5>";
-    // modalString += "</div>";
-    // modalString += "<div class='modal-body'>";
-    // modalString += "...";
-    // modalString += "</div>";
-    // modalString += "<div class='modal-footer'>";
-    // modalString += "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
-    // modalString += "<button type='button' class='btn btn-primary'>Save changes</button>";
-
-
-    //  function to hide and show navbar and footer after welcome video // Will //  
+//  function to hide and show navbar and footer after welcome video // Will //  
     function hideNavBar() {
         $("#navBarDiv").hide();
         $("#footerDiv").hide();
@@ -410,15 +398,10 @@ $(document).ready(function () {
         $("#navBarDiv").show();
         $("#footerDiv").show();
     }
-    //-----------------------------0-------------------------------------//
-
-    // function to go 'home'// Will
     $(document).on('click', '#homeBtn', home);
 
     function home(){
         localStorage.removeItem('myName');
         localStorage.removeItem('Key_word');
-        window.location.reload();
-    }
+        window.location.reload();   
 });
-
